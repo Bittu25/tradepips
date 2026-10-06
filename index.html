@@ -551,7 +551,7 @@ footer strong { color: var(--down); }
     <div class="wrap enrol">
       <div class="stack">
         <h2>Ready to start? Enrol today.</h2>
-        <p class="muted">The next batch starts 15 October and the fee is INR 9,999/- or USD 101. Fill in the form and we will reply with the timings and how to pay.</p>
+        <p class="muted">The next batch starts 15 October and the fee is INR 9,999/- or USD 101. Fill in the form and your enquiry is emailed to us. WhatsApp also opens with your details, so you can send it there for a faster reply.</p>
         <div class="contact">
           <div><span class="muted">Phone / WhatsApp</span><span class="v num">+91 96077 10006</span></div>
           <div><a class="btn" href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enrol%20in%20the%20TradePips%20batch%20starting%2015%20October." target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat on WhatsApp</a></div>
@@ -885,7 +885,7 @@ footer strong { color: var(--down); }
   ids.forEach(function (id) { document.getElementById(id).addEventListener('input', calc); });
   setMode(false); calc();
 
-  // ---------- enquiry form: emails info@tradepips.co, with WhatsApp as the fallback ----------
+  // ---------- enquiry form: every enquiry goes to email and to WhatsApp ----------
   var MAIL_ENDPOINT = 'https://formsubmit.co/ajax/info@tradepips.co';
   document.getElementById('enrol-form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -897,31 +897,36 @@ footer strong { color: var(--down); }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = 'Check the email address. It should look like name@example.com.'; return; }
     if (document.getElementById('f-hp').value) return;   // filled only by bots
     var q = document.getElementById('f-msg').value.trim();
-
-    function viaWhatsApp() {
-      var msg = 'Hi, I want to enrol in the TradePips batch starting 15 October.\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + (q ? '\nQuestion: ' + q : '');
-      link.href = 'https://wa.me/919607710006?text=' + encodeURIComponent(msg);
-      status.className = '';
-      status.textContent = 'We could not send this by email just now. Send it on WhatsApp instead, or write to info@tradepips.co.';
-      link.hidden = false;
-    }
     function done() { btn.disabled = false; btn.textContent = 'Send enquiry'; }
 
+    // 1. email, sent in the background (keepalive lets it finish if the phone switches to WhatsApp)
     btn.disabled = true; btn.textContent = 'Sending…';
     status.className = 'ok'; status.textContent = 'Sending your enquiry…';
     var timeout = new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, 12000); });
     Promise.race([fetch(MAIL_ENDPOINT, {
-      method: 'POST',
+      method: 'POST', keepalive: true,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ name: name, phone: phone, email: email, question: q || '(none)', _subject: 'New TradePips enquiry from ' + name, _template: 'table', _captcha: 'false' })
     }).then(function (r) { return r.json(); }), timeout]).then(function (data) {
       done();
       if (data && (data.success === true || data.success === 'true')) {
         status.className = 'ok';
-        status.textContent = 'Sent. We have your enquiry and will reply to you soon.';
+        status.textContent = 'Sent by email. WhatsApp has also opened with your details: press send there and we will see it right away.';
         form.reset();
-      } else { viaWhatsApp(); }
-    }).catch(function () { done(); viaWhatsApp(); });
+      } else {
+        status.className = '';
+        status.textContent = 'The email did not go through. Please press send in WhatsApp so your enquiry reaches us.';
+      }
+    }).catch(function () {
+      done(); status.className = '';
+      status.textContent = 'The email did not go through. Please press send in WhatsApp so your enquiry reaches us.';
+    });
+
+    // 2. WhatsApp, opened straight away with the same details
+    var msg = 'Hi, I want to enrol in the TradePips batch starting 15 October.\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + (q ? '\nQuestion: ' + q : '');
+    link.href = 'https://wa.me/919607710006?text=' + encodeURIComponent(msg);
+    link.hidden = false;
+    try { link.click(); } catch (err) {}
   });
 })();
 </script>

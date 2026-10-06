@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>TradePips</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: light and airy with deep navy. A sky-blue wash behind the hero, a floating white nav,
+   soft grey-blue rounded cards, navy buttons and one navy feature card per section.
+   Green and red appear only on candles, ticks and risk figures. Single light theme by design. */
+:root {
+  color-scheme: light;
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --soft: #eef2f8;
+  --line: #dde4ef;
+  --fg: #0f1b4c;
+  --text: #0f1b4c;
+  --muted: #65708e;
+  --navy: #0f1b4c;
+  --navy-2: #1e3a8a;
+  --brand: #0f1b4c;
+  --accent: #2a52e0;
+  --sky: #d5e4ff;
+  --sky-2: #e6f1ff;
+  --bar: #cdd7ee;
+  --on-navy: #ffffff;
+  --on-navy-muted: #c4cfee;
+  --up: #0e9f6e;
+  --down: #e5484d;
+  --up-on-navy: #7be3b7;
+  --down-on-navy: #ffa3a6;
+  --wa: #25d366;
+  --bg-candle: 0.07;
+  --shadow: 0 10px 30px rgb(15 27 76 / 0.08);
+  --r: 20px;
+  --font-head: "DM Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 96px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background-color: var(--bg); color: var(--text); font: 400 1rem/1.65 var(--font-body);
+  background-image: radial-gradient(1100px 620px at 85% -5%, var(--sky) 0%, transparent 62%), radial-gradient(900px 520px at 5% 0%, var(--sky-2) 0%, transparent 60%);
+  background-repeat: no-repeat;
+}
+#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.wrap { max-width: 1800px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 48px); }
+a { color: inherit; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+h1, h2 { font-family: var(--font-head); font-weight: 600; color: var(--brand); letter-spacing: -0.025em; line-height: 1.08; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.5rem, 6.2vw, 5.4rem); }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.75rem); }
+h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* promo tape */
+.tape { background: var(--navy); overflow: hidden; white-space: nowrap; }
+.tape-track { display: inline-flex; animation: tape 45s linear infinite; }
+.tape:hover .tape-track { animation-play-state: paused; }
+.tape span { font: 500 0.875rem/1 var(--font-body); color: var(--on-navy); padding: 11px 22px; }
+.tape i { font-style: normal; margin-right: 9px; font-size: 0.8em; }
+.tape .u { color: var(--up-on-navy); } .tape .d { color: var(--down-on-navy); }
+@keyframes tape { to { transform: translateX(-50%); } }
+
+/* floating nav */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); box-shadow: 0 2px 14px rgb(15 27 76 / 0.08); }
+.top { max-width: 1800px; margin-inline: auto; padding: 10px clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; }
+.progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.brand { display: inline-flex; align-items: center; font: 700 1.3rem/1 var(--font-head); letter-spacing: -0.02em; color: var(--brand); text-decoration: none; }
+.brand img { height: 34px; width: auto; display: block; margin-right: 10px; }
+.brand b { font-weight: inherit; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 24px; font-size: 0.95rem; font-weight: 500; }
+.nav a { text-decoration: none; color: var(--text); }
+.nav a:hover { color: var(--accent); }
+.nav .btn-sm { font: 600 0.95rem/1 var(--font-head); background: var(--navy); color: var(--on-navy); padding: 11px 18px; border-radius: 8px; }
+.nav .btn-sm:hover { color: var(--on-navy); background: var(--navy-2); }
+
+.btn { display: inline-block; font: 600 1rem/1 var(--font-head); text-decoration: none; cursor: pointer; padding: 1rem 1.6rem; border: 1px solid var(--navy); border-radius: 10px; background: var(--navy); color: var(--on-navy); transition: transform 0.15s ease, background-color 0.15s ease; }
+.btn:hover { background: var(--navy-2); transform: translateY(-2px); }
+.btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+.btn.line { background: var(--surface); color: var(--fg); border-color: var(--line); box-shadow: 0 2px 8px rgb(15 27 76 / 0.06); }
+.btn.line:hover { background: var(--soft); }
+
+/* hero */
+.hero { padding-block: clamp(36px, 6vw, 80px) clamp(40px, 6vw, 72px); display: grid; gap: clamp(24px, 4vw, 44px); }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-row { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.hero-copy { display: flex; flex-direction: column; gap: 24px; min-width: 0; align-items: flex-start; }
+.hero-copy > p { font-size: 1.15rem; }
+.ticks { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.ticks li { position: relative; background: var(--surface); border-radius: 999px; padding: 9px 16px 9px 38px; font-weight: 600; font-size: 0.95rem; color: var(--fg); box-shadow: 0 3px 12px rgb(15 27 76 / 0.08); }
+.ticks li::before { content: "✓"; position: absolute; left: 11px; top: 50%; margin-top: -9px; width: 18px; height: 18px; border-radius: 50%; background: var(--up); color: var(--on-navy); font-size: 11px; line-height: 18px; text-align: center; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-copy .count { font-size: 1rem; color: var(--muted); }
+.cd { font-weight: 600; }
+.count .cd { color: var(--accent); }
+.chart { min-width: 0; margin: 0; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+.chart canvas { display: block; width: 100%; height: clamp(260px, 34vw, 520px); }
+.chart figcaption { padding: 10px 18px 14px; color: var(--muted); font-size: 0.875rem; }
+.stats { margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px clamp(16px, 3vw, 40px); background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: clamp(18px, 2.4vw, 30px) clamp(20px, 3vw, 40px); }
+.stats div { min-width: 0; }
+.stats dt { font: 600 clamp(1.9rem, 3.8vw, 3rem)/1.05 var(--font-head); letter-spacing: -0.02em; color: var(--brand); }
+.stats dd { margin: 6px 0 0; color: var(--muted); }
+
+section { padding-block: clamp(48px, 7vw, 96px); }
+.band { background: var(--surface); }
+section > .wrap > h2, section > .wrap > .intro { text-align: center; margin-inline: auto; }
+.intro { margin-top: 14px; max-width: 46rem; color: var(--muted); font-size: 1.05rem; }
+
+/* cards */
+.market, .week, .jpanel, .method li { background: var(--soft); border-radius: var(--r); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.band .market, .band .week { background: var(--bg); }
+.market:hover, .week:hover, .jpanel:hover, .method li:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.markets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: clamp(28px, 4vw, 44px); }
+.market { padding: 22px 26px 28px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.market canvas { display: block; width: 100%; height: 96px; margin-bottom: 8px; }
+.market h3 { font-size: 1.6rem; letter-spacing: -0.02em; }
+.market .pair { color: var(--accent); font-weight: 600; font-size: 0.95rem; }
+
+/* journey: before/after comparison */
+.compare { margin-top: clamp(28px, 4vw, 44px); background: var(--surface); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); padding: 6px clamp(14px, 2.5vw, 36px); overflow-x: auto; }
+.band .compare { background: var(--bg); box-shadow: none; }
+.compare table { width: 100%; border-collapse: collapse; }
+.compare th, .compare td { padding: 17px 10px; text-align: center; border-bottom: 1px solid var(--line); }
+.compare tbody tr:last-child td { border-bottom: 0; }
+.compare th:first-child, .compare td:first-child { text-align: left; }
+.compare th { font: 600 1rem/1.3 var(--font-head); color: var(--muted); }
+.compare th:first-child, .compare th.after { color: var(--fg); }
+.compare th:nth-child(n+2) { width: 22%; }
+.compare td:first-child { color: var(--fg); font-weight: 500; }
+.compare .no { color: var(--down); font-size: 1.1rem; }
+.compare .yes { color: var(--up); font-size: 1.3rem; font-weight: 700; }
+.compare tbody tr:hover td { background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.steps-title { text-align: center; font-size: 1.25rem; margin: clamp(32px, 4vw, 48px) 0 18px; }
+/* journey */
+.journey { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; margin-top: clamp(28px, 4vw, 44px); align-items: stretch; }
+.jpanel { padding: 24px 26px 28px; min-width: 0; }
+.jpanel .when { display: inline-block; font: 600 0.8rem/1 var(--font-head); padding: 6px 10px; border-radius: 999px; background: var(--surface); color: var(--down); }
+.jpanel.end .when { color: var(--up); }
+.jpanel h3 { font-size: 1.45rem; letter-spacing: -0.02em; margin: 12px 0 16px; }
+.jpanel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.jpanel li { position: relative; padding-left: 1.6rem; }
+.jpanel li::before { content: "✕"; position: absolute; left: 0; top: 0; font-weight: 700; color: var(--down); }
+.jpanel.end li::before { content: "✓"; color: var(--up); }
+.steps { list-style: none; margin: 0; padding: 0 0 4px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: end; }
+.steps li { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.steps b { display: block; font: 600 0.8rem/1 var(--font-head); color: var(--muted); margin-bottom: 6px; }
+.steps span { font: 600 1rem/1.3 var(--font-head); color: var(--fg); }
+.steps i { display: block; height: var(--h); border-radius: 12px; background: var(--bar); transition: height 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.steps li:nth-child(2) i { background: color-mix(in srgb, var(--accent) 45%, var(--bar)); transition-delay: 0.12s; }
+.steps li:nth-child(3) i { background: var(--accent); transition-delay: 0.24s; }
+.steps li:nth-child(4) i { background: var(--navy); transition-delay: 0.36s; }
+.js .steps.grow:not(.in) i { height: 6px; }
+.journey-note { margin-top: 20px; color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+/* quiz */
+.quiz { max-width: 860px; margin: clamp(28px, 4vw, 44px) auto 0; background: linear-gradient(135deg, var(--navy), var(--navy-2)); color: var(--on-navy-muted); border-radius: 28px; box-shadow: var(--shadow); padding: clamp(22px, 4vw, 48px); display: grid; gap: 20px; }
+.qbar { height: 6px; border-radius: 999px; background: color-mix(in srgb, var(--on-navy) 18%, transparent); overflow: hidden; }
+.qbar i { display: block; height: 100%; width: 0; background: var(--up-on-navy); border-radius: 999px; transition: width 0.3s ease; }
+.qcount { font: 600 0.85rem/1 var(--font-head); }
+.qtext { font: 600 clamp(1.3rem, 2.6vw, 1.75rem)/1.25 var(--font-head); letter-spacing: -0.02em; color: var(--on-navy); margin: 0; }
+.qopts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.qopt { text-align: left; font: 500 1rem/1.35 var(--font-body); color: var(--on-navy); background: color-mix(in srgb, var(--on-navy) 9%, transparent); border: 1px solid color-mix(in srgb, var(--on-navy) 24%, transparent); border-radius: 12px; padding: 15px 16px; cursor: pointer; transition: background-color 0.15s ease, transform 0.15s ease; }
+.qopt:hover { background: color-mix(in srgb, var(--on-navy) 20%, transparent); transform: translateY(-2px); }
+.qopt:focus-visible, .qback:focus-visible { outline: 2px solid var(--up-on-navy); outline-offset: 2px; }
+.qback { justify-self: start; background: none; border: 0; padding: 0; font: 500 0.95rem/1 var(--font-body); color: var(--on-navy-muted); text-decoration: underline; cursor: pointer; }
+.qresult { display: grid; gap: 14px; }
+.qresult ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 6px; }
+.quiz .cta { margin-top: 6px; }
+.quiz .btn { background: var(--surface); color: var(--navy); border-color: var(--surface); display: inline-flex; align-items: center; gap: 10px; }
+.quiz .btn.line { background: transparent; color: var(--on-navy); border-color: color-mix(in srgb, var(--on-navy) 35%, transparent); box-shadow: none; }
+@media (max-width: 560px) { .qopts { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .qbar i, .qopt { transition: none; } .qopt:hover { transform: none; } }
+
+/* syllabus */
+.syllabus { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; margin-top: clamp(28px, 4vw, 44px); }
+.week { min-width: 0; padding: 22px 26px 14px; }
+.week h3 { font-size: 1.15rem; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.week ol { list-style: none; margin: 0; padding: 0; }
+.week li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 10px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.week li:last-child { border-bottom: 0; }
+.week li b { font: 600 1rem/1.65 var(--font-head); color: var(--muted); }
+.week li:hover b { color: var(--accent); }
+
+/* sessions */
+.sessions { display: grid; gap: 10px; margin-top: clamp(28px, 4vw, 44px); }
+.srow { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 12px; align-items: center; }
+.srow > span { font-weight: 600; color: var(--fg); }
+.track { position: relative; height: 34px; background: var(--soft); border-radius: 8px; overflow: hidden; }
+.bar { position: absolute; top: 0; bottom: 0; background: var(--bar); }
+.bar.peak { background: var(--accent); }
+.now { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--down); }
+.hours { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); }
+.session-note { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; margin-top: 20px; color: var(--muted); }
+.key { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 8px; }
+
+/* calculator */
+.calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: stretch; margin-top: clamp(28px, 4vw, 44px); background: var(--soft); border-radius: 24px; padding: clamp(18px, 3vw, 36px); }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-content: start; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+input, select, textarea { width: 100%; font: 400 1rem/1.3 var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0.8rem 0.9rem; }
+textarea { resize: vertical; min-height: 6rem; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+input::placeholder { color: var(--muted); opacity: 0.7; }
+.fine { color: var(--muted); font-size: 0.875rem; }
+.result { background: linear-gradient(135deg, var(--navy), var(--navy-2)); color: var(--on-navy); border-radius: var(--r); padding: clamp(20px, 3vw, 36px); display: grid; gap: 16px; align-content: center; }
+.result .big { font: 700 clamp(3rem, 7vw, 4.6rem)/1 var(--font-head); letter-spacing: -0.03em; }
+.result .big small { font-size: 0.35em; font-weight: 500; letter-spacing: 0; color: var(--on-navy-muted); }
+.result dl { margin: 0; display: grid; gap: 8px; }
+.result dl div { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid color-mix(in srgb, var(--on-navy) 18%, transparent); padding-top: 8px; }
+.result dt, .result .fine { color: var(--on-navy-muted); }
+.result dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+#r-risk { color: var(--down-on-navy); }
+
+/* batch notice */
+.notice { padding-inline: clamp(16px, 3vw, 48px); }
+.notice-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 64px); align-items: start; background: linear-gradient(135deg, var(--navy), var(--navy-2)); color: var(--on-navy-muted); border-radius: 28px; padding: clamp(24px, 4.5vw, 64px); box-shadow: var(--shadow); }
+.notice .stack { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; min-width: 0; }
+.notice h2 { color: var(--on-navy); }
+.notice .cd { color: var(--up-on-navy); }
+.notice .btn { background: var(--surface); color: var(--navy); border-color: var(--surface); }
+.facts { margin: 0; display: grid; }
+.facts div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 12px; padding-block: 13px; border-bottom: 1px solid color-mix(in srgb, var(--on-navy) 18%, transparent); }
+.facts dt { font-weight: 500; }
+.facts dd { margin: 0; color: var(--on-navy); font-weight: 500; }
+
+/* about + faq + enrol */
+.about { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.about .stack { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.about .stack p { max-width: 42rem; font-size: 1.05rem; }
+.method { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: m; }
+.method li { counter-increment: m; padding: 18px 22px 18px 76px; position: relative; min-width: 0; border-radius: 16px; }
+.method li::before { content: counter(m); position: absolute; left: 24px; top: 14px; font: 700 2.2rem/1 var(--font-head); color: var(--accent); }
+.method li span { display: block; color: var(--muted); }
+.faq { max-width: 920px; margin: clamp(28px, 4vw, 44px) auto 0; display: grid; gap: 12px; }
+.faq details { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; min-width: 0; }
+.faq details[open] { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: var(--shadow); }
+.faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; font: 600 1.08rem/1.35 var(--font-head); color: var(--brand); border-radius: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--soft); color: var(--fg); font: 500 1.3rem/30px var(--font-body); text-align: center; transition: transform 0.2s ease, background-color 0.2s ease; }
+.faq details[open] summary::after { content: "−"; background: var(--navy); color: var(--on-navy); }
+.faq summary:hover::after { background: var(--bar); }
+.faq details[open] summary:hover::after { background: var(--navy-2); }
+.faq p { color: var(--text); padding: 0 24px 22px; max-width: 46rem; }
+.enrol { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.enrol .stack { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.contact { display: grid; gap: 14px; }
+.contact span { display: block; }
+.contact .v { font: 600 1.2rem/1.4 var(--font-head); color: var(--fg); user-select: all; }
+form { display: grid; gap: 16px; background: var(--surface); border-radius: 24px; box-shadow: var(--shadow); padding: clamp(18px, 3vw, 36px); }
+#enrol-status { color: var(--down); }
+#enrol-status.ok { color: var(--up); font-weight: 500; }
+#enrol-status:empty { display: none; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 96px; color: var(--muted); font-size: 0.875rem; }
+footer .wrap { display: grid; gap: 10px; }
+footer strong { color: var(--down); }
+
+.fab { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; width: 58px; height: 58px; border-radius: 50%; background: var(--navy); box-shadow: 0 8px 24px rgb(15 27 76 / 0.3); display: grid; place-items: center; transition: transform 0.15s ease; }
+.wa { width: 20px; height: 20px; fill: var(--wa); flex: none; }
+.btn:has(.wa) { display: inline-flex; align-items: center; gap: 10px; }
+.fab .wa { width: 30px; height: 30px; }
+.fab:hover { transform: scale(1.08); }
+.fab:hover { background: var(--navy-2); }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--up-on-navy) 70%, transparent); } 100% { box-shadow: 0 0 0 9px transparent; } }
+
+.js .reveal { opacity: 0.3; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .market, .week, .jpanel, .method li, .steps i { transition: none; }
+  .btn:hover, .market:hover, .week:hover, .jpanel:hover, .method li:hover { transform: none; }
+  .tape-track { animation: none; }
+}
+@media (max-width: 1000px) {
+  .journey { grid-template-columns: minmax(0, 1fr); }
+  .steps i { height: calc(var(--h) * 0.5); }
+}
+@media (max-width: 820px) {
+  .hero-row, .calc, .notice-grid, .enrol, .about, .markets { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .nav a:not(.btn-sm) { display: none; }
+}
+@media (max-width: 520px) {
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; }
+}
+@media (max-width: 460px) {
+  .compare th:nth-child(n+2) { width: 4.6rem; }
+  .compare th, .compare td { padding: 14px 6px; font-size: 0.95rem; }
+  .fields { grid-template-columns: minmax(0, 1fr); }
+  .srow { grid-template-columns: 4.4rem minmax(0, 1fr); }
+  .facts div { grid-template-columns: 6.5rem minmax(0, 1fr); }
+}
+</style>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div class="tape"><div class="tape-track"><div style="display:inline-flex"><span><i class="u">▲</i>Batch starts 15 October</span><span><i class="u">▲</i>15 live classes</span><span><i class="u">▲</i>4 weeks</span><span><i class="d">▼</i>No indicators</span><span><i class="u">▲</i>Complete market structure</span><span><i class="u">▲</i>Forex · gold · crypto</span><span><i class="u">▲</i>1,000+ students taught</span><span><i class="u">▲</i>Mentor with 7+ years in the market</span><span><i class="d">▼</i>No signals, no tips</span></div><div style="display:inline-flex" aria-hidden="true"><span><i class="u">▲</i>Batch starts 15 October</span><span><i class="u">▲</i>15 live classes</span><span><i class="u">▲</i>4 weeks</span><span><i class="d">▼</i>No indicators</span><span><i class="u">▲</i>Complete market structure</span><span><i class="u">▲</i>Forex · gold · crypto</span><span><i class="u">▲</i>1,000+ students taught</span><span><i class="u">▲</i>Mentor with 7+ years in the market</span><span><i class="d">▼</i>No signals, no tips</span></div></div></div>
+
+<div class="topbar">
+<header class="top">
+  <a class="brand" href="#top" id="top"><img src="data:image/png;base64,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" alt="" width="254" height="182"><b>Trade</b><span>Pips</span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#markets">Markets</a>
+    <a href="#journey">Journey</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#batch">Next batch</a>
+    <a href="#about">About</a>
+    <a class="btn-sm" href="#enrol">Enrol now</a>
+  </nav>
+<div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+</div>
+
+
+<main>
+  <div class="wrap hero">
+    <h1>Learn to trade <em>forex, gold and crypto</em> in 15 live classes</h1>
+    <div class="hero-row">
+      <div class="hero-copy">
+        <p>Four weeks with Mr G. A., a trader with 7+ years in the market who has taught 1,000+ students. Start from zero, master complete market structure, and finish with a trading plan you wrote yourself.</p>
+        <ul class="ticks">
+          <li>Pure market structure on a clean chart, no indicators</li>
+          <li>Forex, gold and crypto, all taught live</li>
+          <li>Practice on a demo account, no trading money needed</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="#enrol">Enrol now</a>
+          <a class="btn line" href="#syllabus">See the syllabus</a>
+        </div>
+        <p class="count"><span class="cd">Starts 15 October</span> · INR 9,999/- or USD 101</p>
+      </div>
+      <figure class="chart">
+        <canvas id="chart" role="img" aria-label="Example EUR/USD chart marked with an entry, a stop below the last low and a target at twice the risk"></canvas>
+        <figcaption>EUR/USD, 1-hour candles. An example drawn for class 9, not live prices.</figcaption>
+      </figure>
+    </div>
+    <dl class="stats">
+      <div><dt data-count="15">15</dt><dd>live classes per batch</dd></div>
+      <div><dt data-count="1000" data-suffix="+">1,000+</dt><dd>students taught so far</dd></div>
+      <div><dt data-count="7" data-suffix="+">7+</dt><dd>years your mentor has traded</dd></div>
+      <div><dt>15 Oct</dt><dd>next batch begins</dd></div>
+    </dl>
+  </div>
+
+  <section id="markets">
+    <div class="wrap">
+      <h2>Three markets, one way to read them</h2>
+      <p class="intro">Market structure works the same on every chart. What changes is how fast each market moves and how you size the trade.</p>
+      <div class="markets">
+        <div class="market"><canvas class="mini" data-seed="21" aria-hidden="true"></canvas><h3>Forex</h3><span class="pair">EUR/USD, GBP/USD and the majors</span><p>The deepest market in the world, and where you learn pips, lots and sessions.</p></div>
+        <div class="market"><canvas class="mini" data-seed="34" aria-hidden="true"></canvas><h3>Gold</h3><span class="pair">XAU/USD</span><p>Fast and wide-ranging. You learn what moves it and how to size it safely.</p></div>
+        <div class="market"><canvas class="mini" data-seed="58" aria-hidden="true"></canvas><h3>Crypto</h3><span class="pair">BTC/USD and the majors</span><p>Open all week, weekends included, with the biggest swings of the three.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="journey">
+    <div class="wrap">
+      <h2>Where you start, where you finish</h2>
+      <p class="intro">The same trader, four weeks apart. This is the change the 15 classes are built to make.</p>
+      <div class="compare">
+        <table>
+          <thead><tr><th scope="col">What you can do</th><th scope="col">Day 1</th><th scope="col" class="after">After class 15</th></tr></thead>
+          <tbody>
+            <tr><td>Read market structure on forex, gold and crypto charts</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td>Trade from a plan instead of tips, signals or a feeling</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td>Decide entry, stop and target before placing a trade</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td>Size every trade to a fixed risk</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td>Set a stop-loss and leave it where the plan put it</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td>Have a written trading plan you tested yourself</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td>Keep a journal and review every trade</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="steps-title">How you get there, week by week</h3>
+      <ol class="steps">
+        <li><div><b>Week 1</b><span>Learn the language of the market</span></div><i style="--h:56px"></i></li>
+        <li><div><b>Week 2</b><span>Read structure on any chart</span></div><i style="--h:108px"></i></li>
+        <li><div><b>Week 3</b><span>Control risk on every trade</span></div><i style="--h:160px"></i></li>
+        <li><div><b>Week 4</b><span>Trade your own written plan</span></div><i style="--h:212px"></i></li>
+      </ol>
+      <p class="journey-note">This is what the course teaches you to do. It is not a promise of profit.</p>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="wrap">
+      <h2>Not sure where you stand? Take the quiz</h2>
+      <p class="intro">Five quick questions. You get a straight read on your level and what the course would focus on for you.</p>
+      <div class="quiz" id="quiz-box" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="band" id="syllabus">
+    <div class="wrap">
+      <h2>What we cover, class by class</h2>
+      <p class="intro">No indicators. The whole course is built on market structure, which is all you need to plan a trade from a clean chart. The same reading works on forex, gold and crypto, and you will see all three in the examples.</p>
+      <div class="syllabus">
+        <div class="week"><h3>Week 1 · Basics and structure</h3>
+          <ol>
+            <li><b>1</b><span>How the forex, gold and crypto markets work: pairs, pips, lots, spreads, leverage</span></li>
+            <li><b>2</b><span>Candlesticks and timeframes</span></li>
+            <li><b>3</b><span>Market structure: swing highs, swing lows and trend</span></li>
+            <li><b>4</b><span>Breaks of structure and how a trend changes</span></li>
+          </ol>
+        </div>
+        <div class="week"><h3>Week 2 · Structure and markets</h3>
+          <ol>
+            <li><b>5</b><span>Support, resistance and the levels that matter</span></li>
+            <li><b>6</b><span>Reading structure across timeframes, from the daily chart down to the entry</span></li>
+            <li><b>7</b><span>Gold: what moves it and how it behaves</span></li>
+            <li><b>8</b><span>Crypto: Bitcoin and the majors, a market that never closes, and its volatility</span></li>
+          </ol>
+        </div>
+        <div class="week"><h3>Week 3 · Risk</h3>
+          <ol>
+            <li><b>9</b><span>Planning a trade from structure: entry, stop-loss, target</span></li>
+            <li><b>10</b><span>Position sizing for forex, gold and crypto</span></li>
+            <li><b>11</b><span>News days: central banks, inflation and jobs data</span></li>
+            <li><b>12</b><span>Order types and managing an open trade</span></li>
+          </ol>
+        </div>
+        <div class="week"><h3>Week 4 · Your plan</h3>
+          <ol>
+            <li><b>13</b><span>Writing and backtesting your trading plan</span></li>
+            <li><b>14</b><span>Psychology and the trade journal</span></li>
+            <li><b>15</b><span>Reviewing your demo trades, and what to do next</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sessions">
+    <div class="wrap">
+      <h2>The market is open 24 hours. Most of it is quiet.</h2>
+      <p class="intro">Knowing when to trade is half the job. Forex and gold move most in the four hours when London and New York are both open. Crypto trades all week, weekends included.</p>
+      <div class="sessions" id="sessions-chart">
+        <div class="srow"><span>Sydney</span><div class="track"><div class="bar" style="left:87.5%;width:12.5%"></div><div class="bar" style="left:0;width:25%"></div></div></div>
+        <div class="srow"><span>Tokyo</span><div class="track"><div class="bar" style="left:0;width:37.5%"></div></div></div>
+        <div class="srow"><span>London</span><div class="track"><div class="bar" style="left:29.17%;width:37.5%"></div><div class="bar peak" style="left:50%;width:16.67%"></div></div></div>
+        <div class="srow"><span>New York</span><div class="track"><div class="bar" style="left:50%;width:37.5%"></div><div class="bar peak" style="left:50%;width:16.67%"></div></div></div>
+        <div class="srow"><span></span><div class="hours num"><span>00</span><span>06</span><span>12</span><span>18</span><span>24 UTC</span></div></div>
+      </div>
+      <div class="session-note">
+        <span><i class="key" style="background:var(--accent)"></i>Both open, 12:00 to 16:00 UTC</span>
+        <span><i class="key" style="background:var(--down)"></i>Right now: <span class="num" id="now-text">--:-- UTC</span></span>
+        <span>Usual hours. They move by an hour with daylight saving.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator">
+    <div class="wrap">
+      <h2>Try class 10: how many lots?</h2>
+      <p class="intro">Pick how much of the account you can afford to lose on one trade, measure your stop, and the size follows. Most beginners do this the other way round.</p>
+      <div class="calc">
+        <div class="fields">
+          <div class="field full"><label for="c-inst">Instrument</label><select id="c-inst"><option value="fx">Forex pair quoted in USD</option><option value="gold">Gold (XAU/USD)</option><option value="btc">Bitcoin (BTC/USD)</option></select></div>
+          <div class="field"><label for="c-balance">Account balance (USD)</label><input id="c-balance" type="number" min="0" step="100" value="10000" inputmode="decimal"></div>
+          <div class="field"><label for="c-risk">Risk per trade (%)</label><input id="c-risk" type="number" min="0" max="100" step="0.25" value="1" inputmode="decimal"></div>
+          <div class="field"><label for="c-stop" id="l-stop">Stop-loss distance (pips)</label><input id="c-stop" type="number" min="0" step="1" value="30" inputmode="decimal"></div>
+          <div class="field"><label for="c-pip" id="l-pip">Pip value per standard lot (USD)</label><input id="c-pip" type="number" min="0" step="0.1" value="10" inputmode="decimal"></div>
+          <p class="fine field full" id="c-note">Pip value is $10 per standard lot on pairs quoted in US dollars, such as EUR/USD and GBP/USD.</p>
+        </div>
+        <div class="result" aria-live="polite">
+          <p class="big num"><span id="r-lots">0.33</span> <small>lots</small></p>
+          <dl>
+            <div><dt>Amount at risk</dt><dd id="r-risk">$100.00</dd></div>
+            <div><dt id="l-units">Units of base currency</dt><dd id="r-units">33,000</dd></div>
+            <div><dt id="l-perpip">Loss per pip</dt><dd id="r-perpip">$3.30</dd></div>
+          </dl>
+          <p class="fine">Rounded down to 0.01 lots, so the loss stays inside your limit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice" id="batch">
+    <div class="wrap notice-grid">
+      <div class="stack">
+        <h2>Next batch starts 15 October</h2>
+        <p class="cd">Starts 15 October</p>
+        <p>Seats are for people ready to put in four focused weeks. Every class is live, on real forex, gold and crypto charts, with time for your questions. Between classes you get chart assignments with feedback and a chat for doubts.</p>
+        <a class="btn" href="#enrol">Reserve your seat</a>
+      </div>
+      <dl class="facts">
+        <div><dt>Length</dt><dd>4 weeks, 15 classes</dd></div>
+        <div><dt>Mentor</dt><dd>Mr G. A., 7+ years of trading, 1,000+ students taught</dd></div>
+        <div><dt>Starts</dt><dd>15 October 2026</dd></div>
+        <div><dt>Fee</dt><dd>INR 9,999/- or USD 101</dd></div>
+        <div><dt>You get</dt><dd>Worksheets, a trade journal template and feedback on your demo trades</dd></div>
+        <div><dt>You need</dt><dd>A laptop, internet and a free demo account. No trading money.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div class="stack">
+          <h2>Your mentor, Mr G. A.: 7+ years, 1,000+ students</h2>
+          <p>Mr G. A. has been trading for more than seven years and has taught over 1,000 students. Every class comes from charts he has actually traded, including the losing trades and what they taught him.</p>
+          <p>He doesn't give signals and he doesn't manage anyone's money. He teaches a process you can repeat on your own.</p>
+        </div>
+        <ol class="method">
+          <li><h3>Protect the account first</h3><span>Fixed risk on every trade, sized before you enter.</span></li>
+          <li><h3>Trade a written plan</h3><span>Entry, stop and target decided from structure, not from a feeling.</span></li>
+          <li><h3>Review every trade</h3><span>A journal that shows you what to repeat and what to drop.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details open><summary>I have never traded. Is that a problem?</summary><p>No. Class 1 starts with what a currency pair is. If you already trade, classes 6 to 13 are usually where the gaps are.</p></details>
+        <details><summary>Do I need money to trade with?</summary><p>Not during the course. Everything is practised on a demo account with virtual funds. Whether you trade real money later is your call.</p></details>
+        <details><summary>Will I make a profit after this?</summary><p>Nobody can promise that, and be careful of anyone who does. Most retail traders lose money. You will learn a process and how to keep losses small. The results depend on you and the market.</p></details>
+        <details><summary>Which markets will I learn?</summary><p>Forex, gold and crypto. Market structure reads the same way on all three. What changes is how each one moves and how you size the trade, and both are covered.</p></details>
+        <details><summary>Which indicators will I learn?</summary><p>None. You will learn complete market structure on a clean chart: where price has turned, where it broke, and what that says about the next move. That is enough to find an entry, a stop and a target.</p></details>
+        <details><summary>Do you give trade calls?</summary><p>No. This is teaching only. You will not be told what to buy or sell.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="enrol">
+    <div class="wrap enrol">
+      <div class="stack">
+        <h2>Ready to start? Enrol today.</h2>
+        <p class="muted">The next batch starts 15 October and the fee is INR 9,999/- or USD 101. Fill in the form and we will reply with the timings and how to pay.</p>
+        <div class="contact">
+          <div><span class="muted">Phone / WhatsApp</span><span class="v num">+91 96077 10006</span></div>
+          <div><a class="btn" href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enrol%20in%20the%20TradePips%20batch%20starting%2015%20October." target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat on WhatsApp</a></div>
+          <div><span class="muted">Email</span><span class="v">info@tradepips.co</span></div>
+        </div>
+      </div>
+      <form id="enrol-form" novalidate>
+        <div class="fields">
+          <div class="field full"><label for="f-name">Your name</label><input id="f-name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone number</label><input id="f-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" placeholder="name@example.com" required></div>
+          <div class="field full" hidden><label for="f-hp">Leave this empty</label><input id="f-hp" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="field full"><label for="f-msg">Your question (optional)</label><textarea id="f-msg"></textarea></div>
+        </div>
+        <div><button class="btn" type="submit" id="enrol-send">Send enquiry</button></div>
+        <p id="enrol-status" role="status"></p>
+        <div><a class="btn line" id="enrol-open" href="https://wa.me/919607710006" target="_blank" rel="noopener" hidden><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Open WhatsApp to send</a></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<a class="fab" href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enrol%20in%20the%20TradePips%20batch%20starting%2015%20October." target="_blank" rel="noopener" aria-label="Chat with TradePips on WhatsApp" title="Chat on WhatsApp"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Risk warning.</strong> Trading forex, gold and crypto on margin is high risk and is not suitable for everyone. Leverage can work against you and you can lose more than you expect. These classes are for education only and are not investment advice.</p>
+    <p>Trade only through brokers and on instruments your country's regulator permits.</p>
+    <p>© 2026 TradePips · Phone / WhatsApp <a href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enrol%20in%20the%20TradePips%20batch%20starting%2015%20October." target="_blank" rel="noopener">+91 96077 10006</a> · Email info@tradepips.co</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function cssVar(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+  // ---------- hero chart, marked up by hand ----------
+  var canvas = document.getElementById('chart');
+  var rand = rng(11), candles = [], price = 1.0812;
+  for (var i = 0; i < 46; i++) {
+    var o = price, c = o + (rand() - 0.46) * 0.0017;
+    candles.push({ o: o, c: c, h: Math.max(o, c) + rand() * 0.0006, l: Math.min(o, c) - rand() * 0.0006 });
+    price = c;
+  }
+  var ENTRY_I = 33, entry = candles[ENTRY_I].c, stop = entry - 0.0030, target = entry + 0.0060;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var shown = reduce ? candles.length : 0;
+
+  function drawChart() {
+    var dpr = window.devicePixelRatio || 1, w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    var g = canvas.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+
+    var padL = 10, padR = 58, padT = 18, padB = 12;
+    var lo = Math.min(stop, Math.min.apply(null, candles.map(function (k) { return k.l; }))) - 0.0004;
+    var hi = Math.max(target, Math.max.apply(null, candles.map(function (k) { return k.h; }))) + 0.0008;
+    var y = function (p) { return padT + (hi - p) / (hi - lo) * (h - padT - padB); };
+    var step = (w - padL - padR) / candles.length;
+    var x = function (i) { return padL + step * (i + 0.5); };
+
+    g.textBaseline = 'middle';
+    g.font = '12px "Inter", sans-serif';
+    for (var p = Math.ceil(lo / 0.002 - 1e-6) * 0.002; p <= hi; p += 0.002) {
+      g.strokeStyle = cssVar('--line'); g.lineWidth = 1;
+      g.beginPath(); g.moveTo(padL, Math.round(y(p)) + 0.5); g.lineTo(w - padR, Math.round(y(p)) + 0.5); g.stroke();
+      g.fillStyle = cssVar('--muted'); g.textAlign = 'left';
+      g.fillText(p.toFixed(4), w - padR + 8, y(p));
+    }
+    var bw = Math.max(2, step * 0.6);
+    candles.forEach(function (k, i) {
+      if (i >= shown) return;
+      var col = k.c >= k.o ? cssVar('--up') : cssVar('--down');
+      g.strokeStyle = col; g.fillStyle = col; g.lineWidth = 1;
+      var cx = Math.round(x(i)) + 0.5;
+      g.beginPath(); g.moveTo(cx, y(k.h)); g.lineTo(cx, y(k.l)); g.stroke();
+      g.fillRect(cx - bw / 2, y(Math.max(k.o, k.c)), bw, Math.max(1, Math.abs(y(k.o) - y(k.c))));
+    });
+
+    // the teacher's markup
+    if (shown < candles.length) return;
+    var x0 = x(ENTRY_I), narrow = w < 440;
+    g.font = '600 ' + (narrow ? '13px' : '14px') + ' "DM Sans", sans-serif';
+    [[target, cssVar('--up'), narrow ? 'Target' : 'Target: 2x the risk'],
+     [entry, cssVar('--fg'), 'Entry'],
+     [stop, cssVar('--down'), narrow ? 'Stop' : 'Stop: below the last low']].forEach(function (r, n) {
+      var yy = y(r[0]);
+      g.strokeStyle = r[1]; g.lineWidth = 2; g.lineCap = 'round';
+      g.setLineDash(n === 1 ? [] : [7, 6]);
+      g.beginPath(); g.moveTo(x0, yy); g.lineTo(w - padR - 2, yy + (n - 1) * 1.5); g.stroke(); g.setLineDash([]);
+      g.textAlign = 'right';
+      var tw = g.measureText(r[2]).width, tx = x0 - 22;
+      if (tx - tw < padL + 4) tx = padL + 4 + tw;
+      g.fillStyle = cssVar('--surface'); g.fillRect(tx - tw - 6, yy - 11, tw + 12, 22);
+      g.fillStyle = r[1]; g.fillText(r[2], tx, yy + 1);
+    });
+    g.strokeStyle = cssVar('--fg'); g.lineWidth = 2;
+    g.beginPath(); g.ellipse(x0, y(entry) + 2, 13, 20, -0.25, 0.3, Math.PI * 2 + 0.9); g.stroke();
+  }
+
+  // ---------- page background: faint candles ----------
+  var bg = document.getElementById('bg');
+  function drawBg() {
+    var alpha = parseFloat(cssVar('--bg-candle')) || 0.1, up = cssVar('--up'), down = cssVar('--down');
+    var dpr = window.devicePixelRatio || 1, w = window.innerWidth, h = window.innerHeight;
+    bg.width = Math.round(w * dpr); bg.height = Math.round(h * dpr);
+    var g = bg.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    g.globalAlpha = alpha;
+    var r = rng(7), step = w < 600 ? 26 : 38, n = Math.ceil(w / step) + 1, body = step * 0.5;
+    var p = h * 0.68, unit = h / 16;
+    for (var i = 0; i < n; i++) {
+      var o = p, c = o - (r() - 0.44) * unit * 1.5;
+      if (c < h * 0.12) c = o + r() * unit;
+      if (c > h * 0.9) c = o - r() * unit;
+      var top = Math.min(o, c) - r() * unit * 0.6, bot = Math.max(o, c) + r() * unit * 0.6;
+      var cx = Math.round(i * step + step / 2) + 0.5;
+      g.fillStyle = g.strokeStyle = c <= o ? up : down; g.lineWidth = 1.5;
+      g.beginPath(); g.moveTo(cx, top); g.lineTo(cx, bot); g.stroke();
+      g.fillRect(cx - body / 2, Math.min(o, c), body, Math.max(2, Math.abs(c - o)));
+      p = c;
+    }
+  }
+
+  function drawMini(cv) {
+    var dpr = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight;
+    if (!w || !h) return;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    var g = cv.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h);
+    var r = rng(+cv.getAttribute('data-seed')), n = 26, ks = [], p = 0, lo = 0, hi = 0;
+    for (var i = 0; i < n; i++) {
+      var o = p, c = o + (r() - 0.45) * 2, t = Math.max(o, c) + r() * 0.7, b = Math.min(o, c) - r() * 0.7;
+      ks.push([o, c, t, b]); p = c; lo = Math.min(lo, b); hi = Math.max(hi, t);
+    }
+    var y = function (v) { return 4 + (hi - v) / (hi - lo) * (h - 8); }, step = w / n, bw = Math.max(2, step * 0.55);
+    ks.forEach(function (k, i) {
+      var col = k[1] >= k[0] ? cssVar('--up') : cssVar('--down'), cx = Math.round(step * (i + 0.5)) + 0.5;
+      g.strokeStyle = g.fillStyle = col; g.lineWidth = 1;
+      g.beginPath(); g.moveTo(cx, y(k[2])); g.lineTo(cx, y(k[3])); g.stroke();
+      g.fillRect(cx - bw / 2, y(Math.max(k[0], k[1])), bw, Math.max(1, Math.abs(y(k[0]) - y(k[1]))));
+    });
+  }
+  function redraw() { drawChart(); drawBg(); document.querySelectorAll('canvas.mini').forEach(drawMini); }
+  redraw();
+  if (!reduce) {
+    var t0 = null, done = function () { shown = candles.length; drawChart(); };
+    var stepIn = function (t) {
+      if (shown >= candles.length) return;
+      if (t0 === null) t0 = t;
+      shown = Math.min(candles.length, Math.floor((t - t0) / 1100 * candles.length));
+      drawChart();
+      if (shown < candles.length) requestAnimationFrame(stepIn);
+    };
+    requestAnimationFrame(stepIn);
+    setTimeout(done, 1600);
+  }
+
+  // ---------- countdown to the batch ----------
+  (function () {
+    var days = Math.ceil((new Date(2026, 9, 15) - new Date()) / 86400000);
+    var text = days > 1 ? 'Starts in ' + days + ' days' : days === 1 ? 'Starts tomorrow' : days === 0 ? 'Starts today' : 'Batch in progress. Ask about the next one.';
+    document.querySelectorAll('.cd').forEach(function (el) { el.textContent = text; });
+  })();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawChart);
+  window.addEventListener('resize', redraw);
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  if (mq && mq.addEventListener) mq.addEventListener('change', redraw);
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ---------- light motion: reveal on scroll, count-up, progress bar ----------
+  (function () {
+    var bar = document.getElementById('progress'), ticking = false;
+    function prog() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(prog); } }, { passive: true });
+    prog();
+    if (reduce) return;
+    document.documentElement.classList.add('js');
+
+    var pending = [];
+    document.querySelectorAll('main section h2, .intro, .market, .week, .compare, .quiz, .steps, .sessions, .calc, .facts, .method li, .faq > details, .enrol form').forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) return;   // already on screen: leave it alone
+      el.classList.add(el.classList.contains('steps') ? 'grow' : 'reveal');
+      pending.push(el);
+    });
+    document.querySelectorAll('[data-count]').forEach(function (el) { el._count = true; pending.push(el); });
+
+    function countUp(el) {
+      var end = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '', t0 = Date.now();
+      var show = function (v) { el.textContent = v.toLocaleString('en-US') + suf; };
+      var id = setInterval(function () {
+        var k = Math.min(1, (Date.now() - t0) / 1100);
+        show(Math.round(end * (1 - Math.pow(1 - k, 3))));
+        if (k >= 1) clearInterval(id);
+      }, 30);
+      setTimeout(function () { clearInterval(id); show(end); }, 1400);
+    }
+    // plain position check on scroll, with a slow timer as a safety net so nothing can stay faded
+    function check() {
+      var vh = window.innerHeight;
+      pending = pending.filter(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top > vh * 0.92 || r.bottom < 0) return true;
+        if (el._count) countUp(el); else el.classList.add('in');
+        return false;
+      });
+      if (!pending.length) { clearInterval(timer); window.removeEventListener('scroll', check); }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    var timer = setInterval(check, 400);
+    check();
+  })();
+
+  // ---------- quiz ----------
+  (function () {
+    var box = document.getElementById('quiz-box');
+    var WA = 'https://wa.me/919607710006?text=';
+    var Q = [
+      { k: 'Experience', q: 'How long have you been trading?', o: ['I have never traded', 'Less than 6 months', '6 months to 2 years', 'More than 2 years'] },
+      { k: 'Market', q: 'Which market interests you most?', o: ['Forex', 'Gold', 'Crypto', 'Not sure yet'] },
+      { k: 'How I trade now', q: 'How do you decide on a trade today?', o: ["I don't trade yet", 'Tips or signals from others', 'Indicators on my chart', 'My own reading of the chart'] },
+      { k: 'Biggest struggle', q: 'What is your biggest struggle right now?', o: ["I don't know where to start", 'Reading the chart', 'Losses and risk', 'Discipline and emotions'] },
+      { k: 'Time per week', q: 'How much time can you give each week?', o: ['2 to 3 hours', '4 to 6 hours', '7 hours or more'] }
+    ];
+    var FOCUS = [
+      'Classes 1 to 4 build your base from zero: how the markets work, candlesticks and structure.',
+      'Classes 3 to 6 on market structure will change how you read a chart.',
+      'Classes 9 to 12 on risk and execution are where you will gain the most.',
+      'Classes 13 to 15 on your plan, your journal and psychology are built for this.'
+    ];
+    var ans = [], step = 0;
+    function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+    function render() {
+      box.textContent = '';
+      var bar = el('div', 'qbar'), fill = el('i'); bar.appendChild(fill); box.appendChild(bar);
+      fill.style.width = (step / Q.length * 100) + '%';
+      if (step < Q.length) {
+        box.appendChild(el('p', 'qcount', 'Question ' + (step + 1) + ' of ' + Q.length));
+        box.appendChild(el('h3', 'qtext', Q[step].q));
+        var opts = el('div', 'qopts');
+        Q[step].o.forEach(function (label, i) {
+          var b = el('button', 'qopt', label); b.type = 'button';
+          b.addEventListener('click', function () { ans[step] = i; step++; render(); });
+          opts.appendChild(b);
+        });
+        box.appendChild(opts);
+        if (step > 0) { var back = el('button', 'qback', 'Back'); back.type = 'button'; back.addEventListener('click', function () { step--; render(); }); box.appendChild(back); }
+        return;
+      }
+      var score = ans[0] + ans[2];
+      var level = score <= 1 ? 'You are starting from zero' : score <= 4 ? 'You are building the basics' : 'You already trade and want structure';
+      var res = el('div', 'qresult');
+      res.appendChild(el('p', 'qcount', 'Your result'));
+      res.appendChild(el('h3', 'qtext', level));
+      res.appendChild(el('p', null, FOCUS[ans[3]]));
+      var ul = el('ul');
+      Q.forEach(function (q, i) { ul.appendChild(el('li', null, q.k + ': ' + q.o[ans[i]])); });
+      res.appendChild(ul);
+      var msg = 'Hi, I took the TradePips quiz.\n' + Q.map(function (q, i) { return q.k + ': ' + q.o[ans[i]]; }).join('\n') + '\nResult: ' + level + '\nPlease send me details of the batch starting 15 October.';
+      var cta = el('div', 'cta');
+      var send = el('a', 'btn', 'Send my answers on WhatsApp'); send.href = WA + encodeURIComponent(msg); send.target = '_blank'; send.rel = 'noopener';
+      var again = el('button', 'btn line', 'Start again'); again.type = 'button'; again.addEventListener('click', function () { ans = []; step = 0; render(); });
+      cta.appendChild(send); cta.appendChild(again); res.appendChild(cta);
+      box.appendChild(res);
+    }
+    render();
+  })();
+
+  // ---------- session clock ----------
+  var nowText = document.getElementById('now-text'), markers = [];
+  document.querySelectorAll('#sessions-chart .track').forEach(function (t) {
+    var m = document.createElement('div'); m.className = 'now'; t.appendChild(m); markers.push(m);
+  });
+  function tickClock() {
+    var d = new Date(), hrs = d.getUTCHours(), min = d.getUTCMinutes();
+    var pct = (hrs + min / 60) / 24 * 100;
+    markers.forEach(function (m) { m.style.left = 'calc(' + pct + '% - 1.5px)'; });
+    nowText.textContent = String(hrs).padStart(2, '0') + ':' + String(min).padStart(2, '0') + ' UTC';
+  }
+  tickClock(); setInterval(tickClock, 30000);
+
+  // ---------- position size calculator ----------
+  var ids = ['c-balance', 'c-risk', 'c-stop', 'c-pip'];
+  var inst = document.getElementById('c-inst');
+  var MODES = {
+    gold: { contract: 100, stop: 15, value: 100, lStop: 'Stop-loss distance (USD per ounce)', lValue: 'Value of a $1 move per lot (USD)', lUnits: 'Ounces of gold', lPer: 'Loss per $1 move',
+            note: "A standard gold lot is 100 ounces at most brokers, so a $1 move in price is $100 per lot. Check your broker's contract size." },
+    btc:  { contract: 1, stop: 500, value: 1, lStop: 'Stop-loss distance (USD)', lValue: 'Value of a $1 move per lot (USD)', lUnits: 'Bitcoin', lPer: 'Loss per $1 move',
+            note: "At most brokers one lot of BTC/USD is 1 Bitcoin, so a $1 move in price is $1 per lot. Check your broker's contract size." },
+    fx:   { contract: 100000, stop: 30, value: 10, lStop: 'Stop-loss distance (pips)', lValue: 'Pip value per standard lot (USD)', lUnits: 'Units of base currency', lPer: 'Loss per pip',
+            note: 'Pip value is $10 per standard lot on pairs quoted in US dollars, such as EUR/USD and GBP/USD. Other pairs differ, and class 10 covers how to work it out.' }
+  };
+  function setMode(reset) {
+    var m = MODES[inst.value];
+    document.getElementById('l-stop').textContent = m.lStop;
+    document.getElementById('l-pip').textContent = m.lValue;
+    document.getElementById('l-units').textContent = m.lUnits;
+    document.getElementById('l-perpip').textContent = m.lPer;
+    document.getElementById('c-note').textContent = m.note;
+    if (reset) { document.getElementById('c-stop').value = m.stop; document.getElementById('c-pip').value = m.value; }
+  }
+  var money = function (n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  function calc() {
+    var v = ids.map(function (id) { return parseFloat(document.getElementById(id).value); });
+    var ok = v.every(function (n) { return isFinite(n) && n > 0; });
+    var risk = ok ? v[0] * v[1] / 100 : 0;
+    var lots = ok ? Math.floor(risk / (v[2] * v[3]) * 100 + 1e-9) / 100 : 0;
+    document.getElementById('r-lots').textContent = ok ? lots.toFixed(2) : '--';
+    document.getElementById('r-risk').textContent = ok ? money(risk) : '--';
+    document.getElementById('r-units').textContent = ok ? (lots * MODES[inst.value].contract).toLocaleString('en-US', { maximumFractionDigits: 2 }) : '--';
+    document.getElementById('r-perpip').textContent = ok ? money(lots * v[3]) : '--';
+  }
+  inst.addEventListener('change', function () { setMode(true); calc(); });
+  ids.forEach(function (id) { document.getElementById(id).addEventListener('input', calc); });
+  setMode(false); calc();
+
+  // ---------- enquiry form: emails info@tradepips.co, with WhatsApp as the fallback ----------
+  var MAIL_ENDPOINT = 'https://formsubmit.co/ajax/info@tradepips.co';
+  document.getElementById('enrol-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = this, status = document.getElementById('enrol-status'), link = document.getElementById('enrol-open'), btn = document.getElementById('enrol-send');
+    status.className = ''; link.hidden = true;
+    var name = document.getElementById('f-name').value.trim(), phone = document.getElementById('f-phone').value.trim(), email = document.getElementById('f-email').value.trim();
+    if (!name || !phone || !email) { status.textContent = 'Add your name, phone number and email so we can reach you.'; return; }
+    if (phone.replace(/\D/g, '').length < 8) { status.textContent = 'Check the phone number. It looks too short.'; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = 'Check the email address. It should look like name@example.com.'; return; }
+    if (document.getElementById('f-hp').value) return;   // filled only by bots
+    var q = document.getElementById('f-msg').value.trim();
+
+    function viaWhatsApp() {
+      var msg = 'Hi, I want to enrol in the TradePips batch starting 15 October.\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + (q ? '\nQuestion: ' + q : '');
+      link.href = 'https://wa.me/919607710006?text=' + encodeURIComponent(msg);
+      status.className = '';
+      status.textContent = 'We could not send this by email just now. Send it on WhatsApp instead, or write to info@tradepips.co.';
+      link.hidden = false;
+    }
+    function done() { btn.disabled = false; btn.textContent = 'Send enquiry'; }
+
+    btn.disabled = true; btn.textContent = 'Sending…';
+    status.className = 'ok'; status.textContent = 'Sending your enquiry…';
+    var timeout = new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, 12000); });
+    Promise.race([fetch(MAIL_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name: name, phone: phone, email: email, question: q || '(none)', _subject: 'New TradePips enquiry from ' + name, _template: 'table', _captcha: 'false' })
+    }).then(function (r) { return r.json(); }), timeout]).then(function (data) {
+      done();
+      if (data && (data.success === true || data.success === 'true')) {
+        status.className = 'ok';
+        status.textContent = 'Sent. We have your enquiry and will reply to you soon.';
+        form.reset();
+      } else { viaWhatsApp(); }
+    }).catch(function () { done(); viaWhatsApp(); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -899,27 +899,24 @@ footer strong { color: var(--down); }
     var q = document.getElementById('f-msg').value.trim();
     function done() { btn.disabled = false; btn.textContent = 'Send enquiry'; }
 
-    // 1. email, sent in the background (keepalive lets it finish if the phone switches to WhatsApp)
-    btn.disabled = true; btn.textContent = 'Sending…';
-    status.className = 'ok'; status.textContent = 'Sending your enquiry…';
-    var timeout = new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, 12000); });
-    Promise.race([fetch(MAIL_ENDPOINT, {
+    // 1. email, sent in the background. The mail service can take several seconds to answer,
+    //    so confirm straight away and only come back to the visitor if it actually fails.
+    status.className = 'ok';
+    status.textContent = 'Thank you, ' + name.split(' ')[0] + '. Your enquiry is on its way and we will reply to you soon.';
+    form.reset();
+    btn.disabled = true; setTimeout(done, 2500);
+    fetch(MAIL_ENDPOINT, {
       method: 'POST', keepalive: true,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ name: name, phone: phone, email: email, question: q || '(none)', _subject: 'New TradePips enquiry from ' + name, _template: 'table', _captcha: 'false' })
-    }).then(function (r) { return r.json(); }), timeout]).then(function (data) {
-      done();
-      if (data && (data.success === true || data.success === 'true')) {
-        status.className = 'ok';
-        status.textContent = 'Sent. We have your enquiry and will reply to you soon.';
-        form.reset();
-      } else { failed(); }
-    }).catch(function () { done(); failed(); });
+    }).then(function (r) { return r.json(); }).then(function (data) {
+      if (!(data && (data.success === true || data.success === 'true'))) failed();
+    }).catch(failed);
 
     // 2. WhatsApp link with the same details, shown as an optional button
     function failed() {
       status.className = '';
-      status.textContent = 'We could not send this just now. Please use the WhatsApp button below, or write to info@tradepips.co.';
+      status.textContent = 'Sorry, your enquiry did not go through. Please use the WhatsApp button below, which has your details filled in, or write to info@tradepips.co.';
     }
     var msg = 'Hi, I want to enrol in the TradePips batch starting 15 October.\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email + (q ? '\nQuestion: ' + q : '');
     link.href = 'https://wa.me/919607710006?text=' + encodeURIComponent(msg);

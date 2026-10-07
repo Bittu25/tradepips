@@ -232,13 +232,13 @@ section > .wrap > h2, section > .wrap > .intro { text-align: center; margin-inli
 /* sessions */
 .sessions { display: grid; gap: 10px; margin-top: clamp(28px, 4vw, 44px); }
 .srow { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 12px; align-items: center; }
-.srow > span { font-weight: 600; color: var(--fg); }
+.srow > span { font-weight: 600; color: var(--fg); white-space: nowrap; }
 .track { position: relative; height: 34px; background: var(--soft); border-radius: 8px; overflow: hidden; }
 .bar { position: absolute; top: 0; bottom: 0; background: var(--bar); }
 .bar.peak { background: var(--accent); }
 .now { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--down); }
 .hours { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); }
-.session-note { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; margin-top: 20px; color: var(--muted); }
+.session-note { display: flex; flex-wrap: wrap; justify-content: center; text-align: center; gap: 6px 28px; margin-top: 20px; color: var(--muted); }
 .key { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 8px; }
 
 /* calculator */
@@ -329,7 +329,7 @@ footer strong { color: var(--down); }
   .hero-row, .calc, .notice-grid, .enrol, .about, .markets { grid-template-columns: minmax(0, 1fr); }
   .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 16px 12px; text-align: center; }
   .stats dt { font-size: clamp(1.05rem, 5.4vw, 1.9rem); white-space: nowrap; }
-  .stats dd { margin-top: 4px; font-size: clamp(0.66rem, 2.9vw, 0.9rem); white-space: nowrap; }
+  .stats dd { margin-top: 4px; font-size: clamp(0.64rem, 3.2vw, 0.9rem); white-space: nowrap; }
   .stats .lg { display: none; }
   .stats .sm { display: inline; }
 }
@@ -345,6 +345,28 @@ footer strong { color: var(--down); }
   .fields { grid-template-columns: minmax(0, 1fr); }
   .srow { grid-template-columns: 4.4rem minmax(0, 1fr); }
   .facts div { grid-template-columns: 6.5rem minmax(0, 1fr); }
+}
+
+/* phone polish: sizes and alignment */
+.facts .pr { white-space: nowrap; }
+.nav .btn-sm { display: inline-flex; align-items: center; min-height: 42px; }
+@media (max-width: 820px) {
+  .about h2, .enrol h2 { text-align: center; }
+}
+@media (max-width: 520px) {
+  .hero .cta { flex-direction: column; align-self: stretch; }
+  .hero .cta .btn { text-align: center; }
+  .facts .pr { display: block; }
+  .facts .or { display: none; }
+  .srow { grid-template-columns: 4.9rem minmax(0, 1fr); gap: 10px; }
+  .srow > span { font-size: 0.95rem; }
+  /* weekly steps become four horizontal bars that get longer each week */
+  .steps { grid-template-columns: minmax(0, 1fr); row-gap: 18px; align-items: stretch; }
+  .steps li { gap: 8px; }
+  .steps i { height: 14px; width: var(--w); border-radius: 999px; transition: width 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .steps li:nth-child(1) i { --w: 25%; } .steps li:nth-child(2) i { --w: 50%; }
+  .steps li:nth-child(3) i { --w: 75%; } .steps li:nth-child(4) i { --w: 100%; }
+  .js .steps.grow:not(.in) i { height: 14px; width: 14px; }
 }
 </style>
 
@@ -555,7 +577,7 @@ footer strong { color: var(--down); }
         <div><dt>Length</dt><dd>4 weeks, 15 classes</dd></div>
         <div><dt>Mentor</dt><dd>7+ years of trading, 1,000+ students taught</dd></div>
         <div><dt>Starts</dt><dd>15 October 2026</dd></div>
-        <div><dt>Fee</dt><dd><span class="badge">Early bird access</span><br><s>INR 15,000</s> INR 9,999/- &nbsp;or&nbsp; <s>USD 151</s> USD 101</dd></div>
+        <div><dt>Fee</dt><dd><span class="badge">Early bird access</span><br><span class="pr"><s>INR 15,000</s> INR 9,999/-</span><span class="or"> &nbsp;or&nbsp; </span><span class="pr"><s>USD 151</s> USD 101</span></dd></div>
         <div><dt>Seats</dt><dd>Limited seats</dd></div>
         <div><dt>You get</dt><dd>Worksheets, a trade journal template and feedback on your demo trades</dd></div>
         <div><dt>You need</dt><dd>Internet, and a free demo account (optional). No trading money.</dd></div>

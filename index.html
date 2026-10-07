@@ -95,6 +95,19 @@ h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
 .btn.line { background: var(--surface); color: var(--fg); border-color: var(--line); box-shadow: 0 2px 8px rgb(15 27 76 / 0.06); }
 .btn.line:hover { background: var(--soft); }
 
+/* offer */
+.badge { display: inline-block; font: 600 0.8rem/1 var(--font-head); background: var(--down); color: var(--on-navy); padding: 6px 11px; border-radius: 999px; }
+.offer { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 16px 20px 18px; display: grid; gap: 6px; }
+.offer-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 4px; }
+.seats { font-weight: 600; font-size: 0.9rem; color: var(--down); }
+.price { font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--fg); font-variant-numeric: tabular-nums; }
+.price.alt { font-size: 1.15rem; font-weight: 600; }
+.price s, .facts s { font-weight: 500; color: var(--muted); margin-right: 6px; }
+.price s { font-size: 0.62em; }
+.price.alt s { font-size: 0.85em; }
+.facts s { color: var(--on-navy-muted); }
+.facts .badge { margin-bottom: 8px; }
+
 /* hero */
 .hero { padding-block: clamp(36px, 6vw, 80px) clamp(40px, 6vw, 72px); display: grid; gap: clamp(24px, 4vw, 44px); }
 .hero h1 em { font-style: normal; color: var(--accent); }
@@ -314,7 +327,7 @@ footer strong { color: var(--down); }
 
 <canvas id="bg" aria-hidden="true"></canvas>
 
-<div class="tape"><div class="tape-track"><div style="display:inline-flex"><span><i class="u">▲</i>Batch starts 15 October</span><span><i class="u">▲</i>15 live classes</span><span><i class="u">▲</i>4 weeks</span><span><i class="d">▼</i>No indicators</span><span><i class="u">▲</i>Complete market structure</span><span><i class="u">▲</i>Forex · gold · crypto</span><span><i class="u">▲</i>1,000+ students taught</span><span><i class="u">▲</i>Mentor with 7+ years in the market</span><span><i class="d">▼</i>No signals, no tips</span></div><div style="display:inline-flex" aria-hidden="true"><span><i class="u">▲</i>Batch starts 15 October</span><span><i class="u">▲</i>15 live classes</span><span><i class="u">▲</i>4 weeks</span><span><i class="d">▼</i>No indicators</span><span><i class="u">▲</i>Complete market structure</span><span><i class="u">▲</i>Forex · gold · crypto</span><span><i class="u">▲</i>1,000+ students taught</span><span><i class="u">▲</i>Mentor with 7+ years in the market</span><span><i class="d">▼</i>No signals, no tips</span></div></div></div>
+<div class="tape"><div class="tape-track"><div style="display:inline-flex"><span><i class="u">▲</i>Batch starts 15 October</span><span><i class="u">▲</i>Early bird offer: INR 9,999/- instead of INR 15,000</span><span><i class="d">▼</i>Limited seats available</span><span><i class="u">▲</i>15 live classes</span><span><i class="u">▲</i>4 weeks</span><span><i class="d">▼</i>No indicators</span><span><i class="u">▲</i>Complete market structure</span><span><i class="u">▲</i>Forex · gold · crypto</span><span><i class="u">▲</i>1,000+ students taught</span><span><i class="u">▲</i>Mentor with 7+ years in the market</span><span><i class="d">▼</i>No signals, no tips</span></div><div style="display:inline-flex" aria-hidden="true"><span><i class="u">▲</i>Batch starts 15 October</span><span><i class="u">▲</i>Early bird offer: INR 9,999/- instead of INR 15,000</span><span><i class="d">▼</i>Limited seats available</span><span><i class="u">▲</i>15 live classes</span><span><i class="u">▲</i>4 weeks</span><span><i class="d">▼</i>No indicators</span><span><i class="u">▲</i>Complete market structure</span><span><i class="u">▲</i>Forex · gold · crypto</span><span><i class="u">▲</i>1,000+ students taught</span><span><i class="u">▲</i>Mentor with 7+ years in the market</span><span><i class="d">▼</i>No signals, no tips</span></div></div></div>
 
 <div class="topbar">
 <header class="top">
@@ -344,11 +357,16 @@ footer strong { color: var(--down); }
           <li>Forex, gold and crypto, all taught live</li>
           <li>Practice on a demo account, no trading money needed</li>
         </ul>
+        <div class="offer">
+          <div class="offer-top"><span class="badge">Early bird offer</span><span class="seats">Limited seats available</span></div>
+          <p class="price"><s>INR 15,000</s> INR 9,999/-</p>
+          <p class="price alt"><s>USD 151</s> USD 101</p>
+        </div>
         <div class="cta">
           <a class="btn" href="#enrol">Register now</a>
           <a class="btn line" href="#syllabus">See the syllabus</a>
         </div>
-        <p class="count"><span class="cd">Starts 15 October</span> · INR 9,999/- or USD 101</p>
+        <p class="count"><span class="cd">Starts 15 October</span> · Early bird fee ends when seats fill</p>
       </div>
       <figure class="chart">
         <canvas id="chart" role="img" aria-label="Example EUR/USD chart marked with an entry, a stop below the last low and a target at twice the risk"></canvas>
@@ -509,7 +527,8 @@ footer strong { color: var(--down); }
         <div><dt>Length</dt><dd>4 weeks, 15 classes</dd></div>
         <div><dt>Mentor</dt><dd>7+ years of trading, 1,000+ students taught</dd></div>
         <div><dt>Starts</dt><dd>15 October 2026</dd></div>
-        <div><dt>Fee</dt><dd>INR 9,999/- or USD 101</dd></div>
+        <div><dt>Fee</dt><dd><span class="badge">Early bird offer</span><br><s>INR 15,000</s> INR 9,999/- &nbsp;or&nbsp; <s>USD 151</s> USD 101</dd></div>
+        <div><dt>Seats</dt><dd>Limited seats available</dd></div>
         <div><dt>You get</dt><dd>Worksheets, a trade journal template and feedback on your demo trades</dd></div>
         <div><dt>You need</dt><dd>A laptop, internet and a free demo account. No trading money.</dd></div>
       </dl>
@@ -537,7 +556,7 @@ footer strong { color: var(--down); }
     <div class="wrap enrol">
       <div class="stack">
         <h2>Register for the 15 October batch</h2>
-        <p class="muted">The next batch starts 15 October and the fee is INR 9,999/- or USD 101. Fill in the form to register. We will then contact you with the class timings and how to pay the fee.</p>
+        <p class="muted">The next batch starts 15 October. Early bird offer: INR 9,999/- instead of INR 15,000, or USD 101 instead of USD 151. Limited seats are available. Fill in the form to register. We will then contact you with the class timings and how to pay the fee.</p>
         <div class="contact">
           <div><span class="muted">Phone / WhatsApp</span><span class="v num">+91 96077 10006</span></div>
           <div><a class="btn" href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enrol%20in%20the%20TradePips%20batch%20starting%2015%20October." target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat on WhatsApp</a></div>
@@ -564,7 +583,7 @@ footer strong { color: var(--down); }
     <div class="wrap">
       <h2>Frequently asked questions</h2>
       <div class="faq">
-        <details open><summary>How do I register?</summary><p>Fill in the registration form above with your name, phone number and email. We then contact you with the class timings and how to pay the fee of INR 9,999/- or USD 101.</p></details>
+        <details open><summary>How do I register?</summary><p>Fill in the registration form above with your name, phone number and email. We then contact you with the class timings and how to pay the early bird fee of INR 9,999/- (regular fee INR 15,000) or USD 101 (regular fee USD 151). Seats are limited.</p></details>
         <details><summary>I have never traded. Is that a problem?</summary><p>No. Class 1 starts with what a currency pair is. If you already trade, classes 6 to 13 are usually where the gaps are.</p></details>
         <details><summary>Do I need money to trade with?</summary><p>Not during the course. Everything is practised on a demo account with virtual funds. Whether you trade real money later is your call.</p></details>
         <details><summary>Will I make a profit after this?</summary><p>Nobody can promise that, and be careful of anyone who does. Most retail traders lose money. You will learn a process and how to keep losses small. The results depend on you and the market.</p></details>

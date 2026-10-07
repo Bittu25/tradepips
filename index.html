@@ -109,6 +109,8 @@ h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
   .fab-enroll.away { opacity: 0; pointer-events: none; transform: translateY(12px); }
   a.fab { bottom: calc(78px + env(safe-area-inset-bottom, 0px)); width: 50px; height: 50px; }
   a.fab .wa { width: 26px; height: 26px; }
+  a.fab { transition: bottom 0.2s ease, transform 0.15s ease; }
+  .fab-low a.fab { bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
   .hero-copy .ticks { order: 3; }
   body footer { padding-bottom: 170px; }
   .timer { gap: 8px; }
@@ -371,8 +373,8 @@ footer strong { color: var(--down); }
   .about h2, .enrol h2 { text-align: center; }
 }
 @media (max-width: 520px) {
-  .hero .cta { flex-direction: column; align-self: stretch; }
-  .hero .cta .btn { text-align: center; }
+  .hero .cta { flex-direction: row; flex-wrap: nowrap; gap: 10px; align-self: stretch; }
+  .hero .cta .btn { flex: 1 1 0; min-width: 0; text-align: center; white-space: nowrap; padding-inline: 8px; font-size: clamp(0.86rem, 4.1vw, 1rem); }
   .facts .pr { display: block; }
   .facts .or { display: none; }
   .srow { grid-template-columns: 4.9rem minmax(0, 1fr); gap: 10px; }
@@ -861,7 +863,9 @@ footer strong { color: var(--down); }
       var r = target.getBoundingClientRect(), h = heroBtn.getBoundingClientRect();
       var formOnScreen = r.top < window.innerHeight * 0.75 && r.bottom > 80;
       var heroBtnOnScreen = h.bottom > 60 && h.top < window.innerHeight;
-      fabE.classList.toggle('away', formOnScreen || heroBtnOnScreen);
+      var away = formOnScreen || heroBtnOnScreen;
+      fabE.classList.toggle('away', away);
+      document.body.classList.toggle('fab-low', away);   // WhatsApp icon drops into the free corner
     }
     window.addEventListener('scroll', place, { passive: true });
     window.addEventListener('resize', place);

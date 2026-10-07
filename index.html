@@ -95,6 +95,22 @@ h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
 .btn.line { background: var(--surface); color: var(--fg); border-color: var(--line); box-shadow: 0 2px 8px rgb(15 27 76 / 0.06); }
 .btn.line:hover { background: var(--soft); }
 
+/* countdown */
+.timer { display: flex; flex-wrap: wrap; gap: 10px; }
+.timer div { min-width: 68px; text-align: center; padding: 10px 10px 9px; border-radius: 12px; background: color-mix(in srgb, var(--on-navy) 9%, transparent); border: 1px solid color-mix(in srgb, var(--on-navy) 22%, transparent); }
+.timer b { display: block; font: 700 1.7rem/1.1 var(--font-head); color: var(--on-navy); font-variant-numeric: tabular-nums; }
+.timer span { font-size: 0.75rem; color: var(--on-navy-muted); }
+.timer.over { color: var(--on-navy); font-weight: 600; }
+/* phone-only enroll button, sits under the WhatsApp icon */
+.fab-enroll { display: none; }
+@media (max-width: 640px) {
+  .fab-enroll { display: block; position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; font: 600 1rem/1 var(--font-head); text-decoration: none; background: var(--accent); color: var(--on-navy); padding: 15px 22px; border-radius: 999px; box-shadow: 0 8px 24px rgb(15 27 76 / 0.35); transition: opacity 0.2s ease, transform 0.2s ease; }
+  .fab-enroll.away { opacity: 0; pointer-events: none; transform: translateY(12px); }
+  a.fab { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+  body footer { padding-bottom: 170px; }
+  .timer div { min-width: 60px; }
+}
+
 /* offer */
 .badge { display: inline-block; font: 600 0.8rem/1 var(--font-head); background: var(--down); color: var(--on-navy); padding: 6px 11px; border-radius: 999px; }
 .offer { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 16px 20px 18px; display: grid; gap: 6px; }
@@ -366,7 +382,7 @@ footer strong { color: var(--down); }
           <a class="btn" href="#enrol">Enroll now</a>
           <a class="btn line" href="#syllabus">See the syllabus</a>
         </div>
-        <p class="count"><span class="cd">Starts 15 October</span> · Early bird access ends when seats fill</p>
+        <p class="count"><span class="cd num">Starts 15 October</span> · Early bird access ends when seats fill</p>
       </div>
       <figure class="chart">
         <canvas id="chart" role="img" aria-label="Example EUR/USD chart marked with an entry, a stop below the last low and a target at twice the risk"></canvas>
@@ -519,7 +535,12 @@ footer strong { color: var(--down); }
     <div class="wrap notice-grid">
       <div class="stack">
         <h2>Next batch starts 15 October</h2>
-        <p class="cd">Starts 15 October</p>
+        <div class="timer" id="timer" role="timer" aria-label="Time left until the batch starts">
+          <div><b data-u="d">--</b><span>days</span></div>
+          <div><b data-u="h">--</b><span>hours</span></div>
+          <div><b data-u="m">--</b><span>minutes</span></div>
+          <div><b data-u="s">--</b><span>seconds</span></div>
+        </div>
         <p>Seats are for people ready to put in four focused weeks. Every class is live, on real forex, gold and crypto charts, with time for your questions. Between classes you get chart assignments with feedback and a chat for doubts.</p>
         <a class="btn" href="#enrol">Enroll now</a>
       </div>
@@ -596,6 +617,8 @@ footer strong { color: var(--down); }
 </main>
 
 <a class="fab" href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enroll%20in%20the%20TradePips%20batch%20starting%2015%20October." target="_blank" rel="noopener" aria-label="Chat with TradePips on WhatsApp" title="Chat on WhatsApp"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<a class="fab-enroll" id="fab-enroll" href="#enrol">Enroll now</a>
 
 <footer>
   <div class="wrap">
@@ -743,12 +766,41 @@ footer strong { color: var(--down); }
     setTimeout(done, 1600);
   }
 
-  // ---------- countdown to the batch ----------
+  // ---------- live countdown to the batch (15 October 2026, midnight India time) ----------
   (function () {
-    var days = Math.ceil((new Date(2026, 9, 15) - new Date()) / 86400000);
-    var text = days > 1 ? 'Starts in ' + days + ' days' : days === 1 ? 'Starts tomorrow' : days === 0 ? 'Starts today' : 'Batch in progress. Ask about the next one.';
-    document.querySelectorAll('.cd').forEach(function (el) { el.textContent = text; });
+    var START = new Date('2026-10-15T00:00:00+05:30').getTime();
+    var box = document.getElementById('timer'), hero = document.querySelector('.count .cd');
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    function tick() {
+      var left = START - Date.now();
+      if (left <= 0) {
+        box.className = 'timer over'; box.textContent = 'This batch has started. Ask about the next one.';
+        hero.textContent = 'Batch in progress';
+        clearInterval(id); return;
+      }
+      var sec = Math.floor(left / 1000), d = Math.floor(sec / 86400), h = Math.floor(sec % 86400 / 3600), m = Math.floor(sec % 3600 / 60), s2 = sec % 60;
+      box.querySelector('[data-u="d"]').textContent = d;
+      box.querySelector('[data-u="h"]').textContent = pad(h);
+      box.querySelector('[data-u="m"]').textContent = pad(m);
+      box.querySelector('[data-u="s"]').textContent = pad(s2);
+      hero.textContent = 'Starts in ' + d + 'd ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s2) + 's';
+    }
+    var id = setInterval(tick, 1000);
+    tick();
   })();
+
+  // ---------- phone enroll button: hide it while the form itself is on screen ----------
+  (function () {
+    var fabE = document.getElementById('fab-enroll'), target = document.getElementById('enrol');
+    function place() {
+      var r = target.getBoundingClientRect();
+      fabE.classList.toggle('away', r.top < window.innerHeight * 0.75 && r.bottom > 80);
+    }
+    window.addEventListener('scroll', place, { passive: true });
+    window.addEventListener('resize', place);
+    place();
+  })();
+
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawChart);
   window.addEventListener('resize', redraw);
   var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;

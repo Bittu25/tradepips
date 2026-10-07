@@ -368,6 +368,18 @@ footer strong { color: var(--down); }
   .steps li:nth-child(3) i { --w: 75%; } .steps li:nth-child(4) i { --w: 100%; }
   .js .steps.grow:not(.in) i { height: 14px; width: 14px; }
 }
+
+/* syllabus weeks: always open on desktop, tap to open on phones */
+.week summary { list-style: none; cursor: default; }
+.week summary::-webkit-details-marker { display: none; }
+@media (max-width: 640px) {
+  .week { padding: 6px 22px; }
+  .week summary { cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px; }
+  .week summary h3 { border-bottom: 0; padding-bottom: 0; }
+  .week summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--surface); color: var(--fg); font: 500 1.3rem/30px var(--font-body); text-align: center; }
+  .week[open] summary::after { content: "−"; background: var(--navy); color: var(--on-navy); }
+  .week[open] summary { border-bottom: 1px solid var(--line); }
+}
 </style>
 
 <canvas id="bg" aria-hidden="true"></canvas>
@@ -480,37 +492,37 @@ footer strong { color: var(--down); }
       <h2>What we cover, class by class</h2>
       <p class="intro">No indicators. The whole course is built on market structure, which is all you need to plan a trade from a clean chart. The same reading works on forex, gold and crypto, and you will see all three in the examples.</p>
       <div class="syllabus">
-        <div class="week"><h3>Week 1 · Basics and structure</h3>
+        <details class="week" open><summary><h3>Week 1 · Basics and structure</h3></summary>
           <ol>
             <li><b>1</b><span>How the forex, gold and crypto markets work: pairs, pips, lots, spreads, leverage</span></li>
             <li><b>2</b><span>Candlesticks and timeframes</span></li>
             <li><b>3</b><span>Market structure: swing highs, swing lows and trend</span></li>
             <li><b>4</b><span>Breaks of structure and how a trend changes</span></li>
           </ol>
-        </div>
-        <div class="week"><h3>Week 2 · Structure and markets</h3>
+        </details>
+        <details class="week" open><summary><h3>Week 2 · Structure and markets</h3></summary>
           <ol>
             <li><b>5</b><span>Support, resistance and the levels that matter</span></li>
             <li><b>6</b><span>Reading structure across timeframes, from the daily chart down to the entry</span></li>
             <li><b>7</b><span>Gold: what moves it and how it behaves</span></li>
             <li><b>8</b><span>Crypto: Bitcoin and the majors, a market that never closes, and its volatility</span></li>
           </ol>
-        </div>
-        <div class="week"><h3>Week 3 · Risk</h3>
+        </details>
+        <details class="week" open><summary><h3>Week 3 · Risk</h3></summary>
           <ol>
             <li><b>9</b><span>Planning a trade from structure: entry, stop-loss, target</span></li>
             <li><b>10</b><span>Position sizing for forex, gold and crypto</span></li>
             <li><b>11</b><span>News days: central banks, inflation and jobs data</span></li>
             <li><b>12</b><span>Order types and managing an open trade</span></li>
           </ol>
-        </div>
-        <div class="week"><h3>Week 4 · Your plan</h3>
+        </details>
+        <details class="week" open><summary><h3>Week 4 · Your plan</h3></summary>
           <ol>
             <li><b>13</b><span>Writing and backtesting your trading plan</span></li>
             <li><b>14</b><span>Psychology and the trade journal</span></li>
             <li><b>15</b><span>Reviewing your demo trades, and what to do next</span></li>
           </ol>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -940,6 +952,18 @@ footer strong { color: var(--down); }
       box.appendChild(res);
     }
     render();
+  })();
+
+  // ---------- syllabus weeks: tap to open on phones, always open on larger screens ----------
+  (function () {
+    var weeks = document.querySelectorAll('details.week');
+    var phone = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
+    function set() { weeks.forEach(function (w, i) { w.open = phone && phone.matches ? i === 0 : true; }); }
+    set();
+    if (phone && phone.addEventListener) phone.addEventListener('change', set);
+    weeks.forEach(function (w) {
+      w.querySelector('summary').addEventListener('click', function (e) { if (!(phone && phone.matches)) e.preventDefault(); });
+    });
   })();
 
   // ---------- session clock ----------

@@ -106,14 +106,16 @@ h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
 @media (max-width: 640px) {
   .fab-enroll { display: block; position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; font: 600 1rem/1 var(--font-head); text-decoration: none; background: var(--accent); color: var(--on-navy); padding: 15px 22px; border-radius: 999px; box-shadow: 0 8px 24px rgb(15 27 76 / 0.35); transition: opacity 0.2s ease, transform 0.2s ease; }
   .fab-enroll.away { opacity: 0; pointer-events: none; transform: translateY(12px); }
-  a.fab { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+  a.fab { bottom: calc(78px + env(safe-area-inset-bottom, 0px)); width: 50px; height: 50px; }
+  a.fab .wa { width: 26px; height: 26px; }
+  .hero-copy .ticks { order: 3; }
   body footer { padding-bottom: 170px; }
   .timer div { min-width: 60px; }
 }
 
 /* offer */
 .badge { display: inline-block; font: 600 0.8rem/1 var(--font-head); background: var(--down); color: var(--on-navy); padding: 6px 11px; border-radius: 999px; }
-.offer { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 16px 20px 18px; display: grid; gap: 6px; }
+.offer { align-self: stretch; background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 16px 20px 18px; display: grid; gap: 6px; }
 .offer-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 4px; }
 .seats { font-weight: 600; font-size: 0.9rem; color: var(--down); }
 .price { font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--fg); font-variant-numeric: tabular-nums; }
@@ -791,10 +793,12 @@ footer strong { color: var(--down); }
 
   // ---------- phone enroll button: hide it while the form itself is on screen ----------
   (function () {
-    var fabE = document.getElementById('fab-enroll'), target = document.getElementById('enrol');
+    var fabE = document.getElementById('fab-enroll'), target = document.getElementById('enrol'), heroBtn = document.querySelector('.hero .cta .btn');
     function place() {
-      var r = target.getBoundingClientRect();
-      fabE.classList.toggle('away', r.top < window.innerHeight * 0.75 && r.bottom > 80);
+      var r = target.getBoundingClientRect(), h = heroBtn.getBoundingClientRect();
+      var formOnScreen = r.top < window.innerHeight * 0.75 && r.bottom > 80;
+      var heroBtnOnScreen = h.bottom > 60 && h.top < window.innerHeight;
+      fabE.classList.toggle('away', formOnScreen || heroBtnOnScreen);
     }
     window.addEventListener('scroll', place, { passive: true });
     window.addEventListener('resize', place);

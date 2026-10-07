@@ -96,10 +96,11 @@ h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
 .btn.line:hover { background: var(--soft); }
 
 /* countdown */
-.timer { display: flex; flex-wrap: wrap; gap: 10px; }
-.timer div { min-width: 68px; text-align: center; padding: 10px 10px 9px; border-radius: 12px; background: color-mix(in srgb, var(--on-navy) 9%, transparent); border: 1px solid color-mix(in srgb, var(--on-navy) 22%, transparent); }
-.timer b { display: block; font: 700 1.7rem/1.1 var(--font-head); color: var(--on-navy); font-variant-numeric: tabular-nums; }
-.timer span { font-size: 0.75rem; color: var(--on-navy-muted); }
+.timer { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 340px; }
+.timer.over { display: block; max-width: none; }
+.timer div { min-width: 0; text-align: center; padding: 10px 4px 9px; border-radius: 12px; background: color-mix(in srgb, var(--on-navy) 9%, transparent); border: 1px solid color-mix(in srgb, var(--on-navy) 22%, transparent); }
+.timer b { display: block; font: 700 clamp(1.2rem, 6vw, 1.7rem)/1.1 var(--font-head); color: var(--on-navy); font-variant-numeric: tabular-nums; }
+.timer span { font-size: clamp(0.62rem, 2.9vw, 0.75rem); color: var(--on-navy-muted); white-space: nowrap; }
 .timer.over { color: var(--on-navy); font-weight: 600; }
 /* phone-only enroll button, sits under the WhatsApp icon */
 .fab-enroll { display: none; }
@@ -110,7 +111,7 @@ h3 { font: 600 1.1rem/1.3 var(--font-head); color: var(--brand); margin: 0; }
   a.fab .wa { width: 26px; height: 26px; }
   .hero-copy .ticks { order: 3; }
   body footer { padding-bottom: 170px; }
-  .timer div { min-width: 60px; }
+  .timer { gap: 8px; }
 }
 
 /* offer */
@@ -369,6 +370,13 @@ footer strong { color: var(--down); }
   .js .steps.grow:not(.in) i { height: 14px; width: 14px; }
 }
 
+/* very narrow phones: keep the logo and header button on one line */
+@media (max-width: 400px) {
+  .top { gap: 8px 10px; flex-wrap: nowrap; }
+  .brand { font-size: 1.12rem; }
+  .brand img { height: 30px; margin-right: 8px; }
+  .nav .btn-sm { padding-inline: 14px; white-space: nowrap; }
+}
 /* syllabus weeks: always open on desktop, tap to open on phones */
 .week summary { list-style: none; cursor: default; }
 .week summary::-webkit-details-marker { display: none; }

@@ -348,6 +348,22 @@ footer strong { color: var(--down); }
   .facts div { grid-template-columns: 6.5rem minmax(0, 1fr); }
 }
 
+/* phone-only short wording, so lines that can fit on one line do */
+.sm { display: none; }
+@media (max-width: 520px) {
+  .lg { display: none; }
+  .sm { display: inline; }
+  h2 { font-size: 1.5rem; }
+  .qtext { font-size: 1.1rem; }
+  .week summary h3 { font-size: 0.95rem; }
+  .compare th:nth-child(n+2) { width: 3.6rem; }
+  .compare th, .compare td { padding: 14px 4px; }
+  .compare td:first-child, .compare th:first-child { font-size: 0.92rem; padding-left: 6px; white-space: nowrap; }
+  .facts div { grid-template-columns: 5.2rem minmax(0, 1fr); }
+  .faq summary { font-size: 1rem; padding: 18px 18px; }
+  .faq p { padding: 0 18px 20px; }
+  .hero-copy .count { white-space: nowrap; }
+}
 /* phone polish: sizes and alignment */
 .facts .pr { white-space: nowrap; }
 .nav .btn-sm { display: inline-flex; align-items: center; min-height: 42px; }
@@ -418,9 +434,9 @@ footer strong { color: var(--down); }
       <div class="hero-copy">
         <p>Four weeks with your mentor, a trader with 7+ years in the market who has taught 1,000+ students. Start from zero, master complete market structure, and finish with a trading plan you wrote yourself.</p>
         <ul class="ticks">
-          <li>Pure market structure on a clean chart, no indicators</li>
+          <li><span class="lg">Pure market structure on a clean chart, no indicators</span><span class="sm">Market structure, no indicators</span></li>
           <li>Forex, gold and crypto, all taught live</li>
-          <li>Practice on a demo account, no trading money needed</li>
+          <li><span class="lg">Practice on a demo account, no trading money needed</span><span class="sm">Demo practice, no money needed</span></li>
         </ul>
         <div class="offer">
           <div class="offer-top"><span class="badge">Early bird access</span><span class="seats">Limited seats</span></div>
@@ -431,7 +447,7 @@ footer strong { color: var(--down); }
           <a class="btn" href="#enrol">Enroll now</a>
           <a class="btn line" href="#syllabus">See the syllabus</a>
         </div>
-        <p class="count"><span class="cd num">Starts 15 October</span> · Early bird access ends when seats fill</p>
+        <p class="count"><span class="cd num">Starts 15 October</span><span class="lg"> · Early bird access ends when seats fill</span></p>
       </div>
       <figure class="chart">
         <canvas id="chart" role="img" aria-label="Example EUR/USD chart marked with an entry, a stop below the last low and a target at twice the risk"></canvas>
@@ -448,7 +464,7 @@ footer strong { color: var(--down); }
 
   <section id="markets">
     <div class="wrap">
-      <h2>Three markets, one way to read them</h2>
+      <h2><span class="lg">Three markets, one way to read them</span><span class="sm">Three markets, one method</span></h2>
       <p class="intro">Market structure works the same on every chart. What changes is how fast each market moves and how you size the trade.</p>
       <div class="markets">
         <div class="market"><canvas class="mini" data-seed="21" aria-hidden="true"></canvas><h3>Forex</h3><span class="pair">EUR/USD, GBP/USD and the majors</span><p>The deepest market in the world, and where you learn pips, lots and sessions.</p></div>
@@ -460,19 +476,19 @@ footer strong { color: var(--down); }
 
   <section class="band" id="journey">
     <div class="wrap">
-      <h2>Where you start, where you finish</h2>
+      <h2><span class="lg">Where you start, where you finish</span><span class="sm">Where you start and finish</span></h2>
       <p class="intro">The same trader, four weeks apart. This is the change the 15 classes are built to make.</p>
       <div class="compare">
         <table>
-          <thead><tr><th scope="col">What you can do</th><th scope="col">Day 1</th><th scope="col" class="after">After class 15</th></tr></thead>
+          <thead><tr><th scope="col">What you can do</th><th scope="col"><span class="lg">Day 1</span><span class="sm">Before</span></th><th scope="col" class="after"><span class="lg">After class 15</span><span class="sm">After</span></th></tr></thead>
           <tbody>
-            <tr><td>Read market structure on forex, gold and crypto charts</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
-            <tr><td>Trade from a plan instead of tips, signals or a feeling</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
-            <tr><td>Decide entry, stop and target before placing a trade</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
-            <tr><td>Size every trade to a fixed risk</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
-            <tr><td>Set a stop-loss and leave it where the plan put it</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
-            <tr><td>Have a written trading plan you tested yourself</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
-            <tr><td>Keep a journal and review every trade</td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Read market structure on forex, gold and crypto charts</span><span class="sm">Read market structure</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Trade from a plan instead of tips, signals or a feeling</span><span class="sm">Trade a plan, not tips</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Decide entry, stop and target before placing a trade</span><span class="sm">Plan entry, stop, target</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Size every trade to a fixed risk</span><span class="sm">Size to a fixed risk</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Set a stop-loss and leave it where the plan put it</span><span class="sm">Keep the stop-loss fixed</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Have a written trading plan you tested yourself</span><span class="sm">Written, tested plan</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
+            <tr><td><span class="lg">Keep a journal and review every trade</span><span class="sm">Journal every trade</span></td><td class="no"><span aria-label="No">✕</span></td><td class="yes"><span aria-label="Yes">✓</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -489,7 +505,7 @@ footer strong { color: var(--down); }
 
   <section id="quiz">
     <div class="wrap">
-      <h2>Not sure where you stand? Take the quiz</h2>
+      <h2><span class="lg">Not sure where you stand? Take the quiz</span><span class="sm">Not sure where you stand?</span></h2>
       <p class="intro">Five quick questions. You get a straight read on your level and what the course would focus on for you.</p>
       <div class="quiz" id="quiz-box" aria-live="polite"></div>
     </div>
@@ -537,7 +553,7 @@ footer strong { color: var(--down); }
 
   <section id="sessions">
     <div class="wrap">
-      <h2>The market is open 24 hours. Most of it is quiet.</h2>
+      <h2><span class="lg">The market is open 24 hours. Most of it is quiet.</span><span class="sm">Market hours that matter</span></h2>
       <p class="intro">Knowing when to trade is half the job. Forex and gold move most in the four hours when London and New York are both open. Crypto trades all week, weekends included.</p>
       <div class="sessions" id="sessions-chart">
         <div class="srow"><span>Sydney</span><div class="track"><div class="bar" style="left:87.5%;width:12.5%"></div><div class="bar" style="left:0;width:25%"></div></div></div>
@@ -583,7 +599,7 @@ footer strong { color: var(--down); }
   <section class="notice" id="batch">
     <div class="wrap notice-grid">
       <div class="stack">
-        <h2>Next batch starts 15 October</h2>
+        <h2><span class="lg">Next batch starts 15 October</span><span class="sm">Next batch: 15 October</span></h2>
         <div class="timer" id="timer" role="timer" aria-label="Time left until the batch starts">
           <div><b data-u="d">--</b><span>days</span></div>
           <div><b data-u="h">--</b><span>hours</span></div>
@@ -595,12 +611,12 @@ footer strong { color: var(--down); }
       </div>
       <dl class="facts">
         <div><dt>Length</dt><dd>4 weeks, 15 classes</dd></div>
-        <div><dt>Mentor</dt><dd>7+ years of trading, 1,000+ students taught</dd></div>
+        <div><dt>Mentor</dt><dd><span class="lg">7+ years of trading, 1,000+ students taught</span><span class="sm">7+ yrs, 1,000+ students</span></dd></div>
         <div><dt>Starts</dt><dd>15 October 2026</dd></div>
         <div><dt>Fee</dt><dd><span class="badge">Early bird access</span><br><span class="pr"><s>INR 15,000</s> INR 9,999/-</span><span class="or"> &nbsp;or&nbsp; </span><span class="pr"><s>USD 151</s> USD 101</span></dd></div>
         <div><dt>Seats</dt><dd>Limited seats</dd></div>
-        <div><dt>You get</dt><dd>Worksheets, a trade journal template and feedback on your demo trades</dd></div>
-        <div><dt>You need</dt><dd>Internet, and a free demo account (optional). No trading money.</dd></div>
+        <div><dt>You get</dt><dd><span class="lg">Worksheets, a trade journal template and feedback on your demo trades</span><span class="sm">Worksheets, trade journal, feedback</span></dd></div>
+        <div><dt>You need</dt><dd><span class="lg">Internet, and a free demo account (optional). No trading money.</span><span class="sm">Internet, optional demo account</span></dd></div>
       </dl>
     </div>
   </section>
@@ -609,7 +625,7 @@ footer strong { color: var(--down); }
     <div class="wrap">
       <div class="about">
         <div class="stack">
-          <h2>Your mentor: 7+ years, 1,000+ students</h2>
+          <h2><span class="lg">Your mentor: 7+ years, 1,000+ students</span><span class="sm">Your mentor</span></h2>
           <p>Your mentor has been trading for more than seven years and has taught over 1,000 students. Every class comes from charts he has actually traded, including the losing trades and what they taught him.</p>
           <p>He doesn't give signals and he doesn't manage anyone's money. He teaches a process you can repeat on your own.</p>
         </div>
@@ -654,7 +670,7 @@ footer strong { color: var(--down); }
       <h2>Frequently asked questions</h2>
       <div class="faq">
         <details open><summary>How do I enroll?</summary><p>Fill in the enrollment form above with your name, phone number and email. We then contact you with the class timings and how to pay the early bird access fee of INR 9,999/- (regular fee INR 15,000) or USD 101 (regular fee USD 151). Seats are limited.</p></details>
-        <details><summary>I have never traded. Is that a problem?</summary><p>No. Class 1 starts with what a currency pair is. If you already trade, classes 6 to 13 are usually where the gaps are.</p></details>
+        <details><summary><span><span class="lg">I have never traded. Is that a problem?</span><span class="sm">Never traded. Is that okay?</span></span></summary><p>No. Class 1 starts with what a currency pair is. If you already trade, classes 6 to 13 are usually where the gaps are.</p></details>
         <details><summary>Do I need money to trade with?</summary><p>Not during the course. Everything is practised on a demo account with virtual funds. Whether you trade real money later is your call.</p></details>
         <details><summary>Will I make a profit after this?</summary><p>Nobody can promise that, and be careful of anyone who does. Most retail traders lose money. You will learn a process and how to keep losses small. The results depend on you and the market.</p></details>
         <details><summary>Which markets will I learn?</summary><p>Forex, gold and crypto. Market structure reads the same way on all three. What changes is how each one moves and how you size the trade, and both are covered.</p></details>

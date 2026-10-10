@@ -386,6 +386,12 @@ footer strong { color: var(--down); }
   .faq p { padding: 0 18px 20px; }
   .hero-copy .count { white-space: nowrap; }
 }
+/* guides */
+.guides { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; margin-top: clamp(28px, 4vw, 44px); }
+.guide { display: flex; flex-direction: column; gap: 8px; background: var(--soft); border-radius: var(--r); padding: 22px 24px; text-decoration: none; color: var(--text); min-width: 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.guide:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.guide p { color: var(--muted); }
+.guide span { margin-top: auto; padding-top: 6px; color: var(--accent); font-weight: 600; font-size: 0.95rem; }
 /* phone polish: sizes and alignment */
 .facts .pr { white-space: nowrap; }
 .nav .btn-sm { display: inline-flex; align-items: center; min-height: 42px; }
@@ -441,6 +447,7 @@ footer strong { color: var(--down); }
     <a href="#journey">Journey</a>
     <a href="#quiz">Quiz</a>
     <a href="#syllabus">Syllabus</a>
+    <a href="https://tradepips.co/learn/">Guides</a>
     <a href="#batch">Next batch</a>
     <a href="#about">About</a>
     <a class="btn-sm" href="#enrol">Enroll now</a>
@@ -702,6 +709,19 @@ footer strong { color: var(--down); }
       </div>
     </div>
   </section>
+  <section id="guides">
+    <div class="wrap">
+      <h2>Free trading guides</h2>
+      <p class="intro">Short, plain-English guides you can read before you join.</p>
+      <div class="guides">
+        <a class="guide" href="https://tradepips.co/learn/forex-trading-for-beginners/"><h3>Forex trading for beginners</h3><p>Pips, lots, leverage and spread in plain English.</p><span>Read the guide →</span></a>
+        <a class="guide" href="https://tradepips.co/learn/what-is-market-structure/"><h3>What is market structure?</h3><p>Swing highs, swing lows, trends and breaks of structure.</p><span>Read the guide →</span></a>
+        <a class="guide" href="https://tradepips.co/learn/how-to-calculate-lot-size/"><h3>How to calculate lot size</h3><p>One formula, with examples for forex, gold and Bitcoin.</p><span>Read the guide →</span></a>
+        <a class="guide" href="https://tradepips.co/learn/how-to-trade-gold-xauusd/"><h3>How to trade gold (XAU/USD)</h3><p>What moves gold and how to size a gold trade safely.</p><span>Read the guide →</span></a>
+        <a class="guide" href="https://tradepips.co/learn/best-time-to-trade-forex-in-india/"><h3>Best time to trade in India</h3><p>Session timings in IST and the busiest four hours.</p><span>Read the guide →</span></a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <a class="fab" href="https://wa.me/919607710006?text=Hi%2C%20I%20want%20to%20enroll%20in%20the%20TradePips%20batch%20starting%2017%20October." target="_blank" rel="noopener" aria-label="Chat with TradePips on WhatsApp" title="Chat on WhatsApp"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
@@ -913,7 +933,7 @@ footer strong { color: var(--down); }
     document.documentElement.classList.add('js');
 
     var pending = [];
-    document.querySelectorAll('main section h2, .intro, .market, .week, .compare, .quiz, .steps, .sessions, .calc, .facts, .method li, .faq > details, .enrol form').forEach(function (el) {
+    document.querySelectorAll('main section h2, .intro, .market, .week, .compare, .quiz, .guide, .steps, .sessions, .calc, .facts, .method li, .faq > details, .enrol form').forEach(function (el) {
       if (el.getBoundingClientRect().top < window.innerHeight) return;   // already on screen: leave it alone
       el.classList.add(el.classList.contains('steps') ? 'grow' : 'reveal');
       pending.push(el);
